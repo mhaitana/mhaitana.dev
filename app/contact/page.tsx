@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "Contact",
   description:
     "Get in touch with Matt Haitana for senior software engineering opportunities, consulting, or collaborations.",
+  alternates: {
+    canonical: "/contact",
+  },
 };
 
 const contactLinks = [

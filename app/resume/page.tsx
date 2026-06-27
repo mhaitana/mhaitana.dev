@@ -8,6 +8,9 @@ import { experiences, skillCategories } from "@/lib/data";
 export const metadata: Metadata = {
   title: "Resume",
   description: "Matt Haitana's resume — senior software engineer based in Melbourne, Australia.",
+  alternates: {
+    canonical: "/resume",
+  },
 };
 
 export default function ResumePage() {

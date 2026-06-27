@@ -9,6 +9,9 @@ export const metadata: Metadata = {
   title: "About",
   description:
     "Learn about Matt Haitana's engineering journey, philosophy, technical skills, and career timeline.",
+  alternates: {
+    canonical: "/about",
+  },
 };
 
 function Proficiency({ level }: { level: number }) {

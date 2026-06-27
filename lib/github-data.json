@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-27T14:18:45.213Z",
+  "fetched_at": "2026-06-27T14:24:46.581Z",
   "username": "mhaitana",
   "authenticated": true,
   "profile": {
@@ -24,11 +24,11 @@
       "name": "mhaitana.dev",
       "full_name": "mhaitana/mhaitana.dev",
       "html_url": "https://github.com/mhaitana/mhaitana.dev",
-      "description": null,
+      "description": "Minimalist portfolio featuring an integrated GitHub activity dashboard, career timeline, and skills breakdown. Built with Next.js 15, Tailwind v4, and Framer Motion.",
       "fork": false,
       "created_at": "2026-06-27T13:46:14Z",
-      "updated_at": "2026-06-27T14:18:08Z",
-      "pushed_at": "2026-06-27T14:16:50Z",
+      "updated_at": "2026-06-27T14:24:07Z",
+      "pushed_at": "2026-06-27T14:19:16Z",
       "size": 0,
       "stargazers_count": 0,
       "watchers_count": 0,
@@ -40,8 +40,16 @@
         "JavaScript": 19876,
         "CSS": 5786
       },
-      "topics": [],
-      "homepage": null,
+      "topics": [
+        "framer-motion",
+        "github-api",
+        "nextjs",
+        "portfolio",
+        "react",
+        "tailwindcss",
+        "typescript"
+      ],
+      "homepage": "https://mhaitana.dev",
       "detectedTechnologies": [
         "react",
         "loader",
@@ -76,7 +84,7 @@
       "created_at": "2026-06-26T05:27:22Z",
       "updated_at": "2026-06-27T13:20:04Z",
       "pushed_at": "2026-06-27T13:20:53Z",
-      "size": 47436,
+      "size": 47581,
       "stargazers_count": 0,
       "watchers_count": 0,
       "forks_count": 0,
@@ -171,6 +179,24 @@
     }
   ],
   "events": [
+    {
+      "id": "13975986171",
+      "type": "PushEvent",
+      "public": true,
+      "created_at": "2026-06-27T14:19:17Z",
+      "actor": {
+        "login": "mhaitana",
+        "avatar_url": "https://avatars.githubusercontent.com/u/107464365?"
+      },
+      "repo": {
+        "id": 1282227497,
+        "name": "mhaitana/mhaitana.dev",
+        "url": "https://api.github.com/repos/mhaitana/mhaitana.dev"
+      },
+      "payload": {
+        "ref": "refs/heads/main"
+      }
+    },
     {
       "id": "11062594518",
       "type": "PublicEvent",
@@ -706,7 +732,7 @@
     ]
   },
   "contributionCalendar": {
-    "totalContributions": 1083,
+    "totalContributions": 1084,
     "weeks": [
       {
         "contributionDays": [
@@ -2740,7 +2766,7 @@
         "contributionDays": [
           {
             "date": "2026-06-28",
-            "contributionCount": 1,
+            "contributionCount": 2,
             "color": "#9be9a8"
           }
         ]

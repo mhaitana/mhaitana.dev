@@ -34,6 +34,9 @@ export const metadata: Metadata = {
   title: "GitHub",
   description:
     "Matt Haitana's GitHub dashboard: public repositories, aggregated language stats, contribution graph, and recent public activity.",
+  alternates: {
+    canonical: "/github",
+  },
 };
 
 function ActivityIcon({ type }: { type: string }) {
@@ -130,9 +133,14 @@ function EventDescription({ event }: { event: GitHubEvent }) {
 
 export default async function GitHubPage() {
   const data = await getGitHubData();
-  const { profile, repos, events, languageStats, contributionCalendar, authenticated } = data;
+  const { profile, repos, events, languageStats, detectedTechnologies, contributionCalendar, authenticated } = data;
   const totalStars = repos.reduce((sum, r) => sum + r.stargazers_count, 0);
   const totalForks = repos.reduce((sum, r) => sum + r.forks_count, 0);
+
+  const topTechnologies = Object.values(detectedTechnologies ?? {})
+    .flat()
+    .sort((a, b) => b.count - a.count)
+    .slice(0, 10);
 
   return (
     <>
@@ -402,6 +410,25 @@ export default async function GitHubPage() {
                 )}
               </div>
             </AnimatedReveal>
+
+            {topTechnologies && topTechnologies.length > 0 && (
+              <AnimatedReveal delay={0.05}>
+                <div className="rounded-2xl border border-border bg-card p-6 shadow-sm">
+                  <h2 className="text-lg font-semibold">Technologies</h2>
+                  <p className="mt-1 text-sm text-muted-foreground">
+                    Frameworks, libraries, and databases detected across repositories.
+                  </p>
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    {topTechnologies.map((tech) => (
+                      <TechnologyBadge key={tech.name}>
+                        {tech.name}
+                        {tech.count > 1 && ` (${tech.count})`}
+                      </TechnologyBadge>
+                    ))}
+                  </div>
+                </div>
+              </AnimatedReveal>
+            )}
 
             <AnimatedReveal delay={0.1}>
               <div className="rounded-2xl border border-border bg-card p-6 shadow-sm">

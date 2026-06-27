@@ -4,6 +4,7 @@ import { Providers } from "@/components/providers";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { SkipNav } from "@/components/skip-nav";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://mhaitana.dev"),
@@ -53,10 +54,10 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://mhaitana.dev",
+    canonical: "/",
   },
   verification: {
-    google: "google-site-verification-placeholder",
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
   },
 };
 
@@ -75,6 +76,7 @@ export default function RootLayout({
             {children}
           </div>
           <Footer />
+          <Analytics />
         </Providers>
       </body>
     </html>
