@@ -3,7 +3,6 @@ import { Github, Linkedin, Mail, MapPin } from "lucide-react";
 import { Container } from "@/components/container";
 import { SectionHeading } from "@/components/section-heading";
 import { AnimatedReveal } from "@/components/animated-reveal";
-import { ContactForm } from "@/components/contact-form";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -52,34 +51,22 @@ export default function ContactPage() {
       </section>
 
       <section className="px-6 pb-24 lg:px-8">
-        <Container className="grid gap-12 lg:grid-cols-[1fr_360px]">
-          <AnimatedReveal>
-            <div className="rounded-2xl border border-border bg-card p-6 shadow-sm sm:p-8">
-              <h2 className="text-xl font-semibold">Send a message</h2>
-              <p className="mt-2 text-sm text-muted-foreground">
-                Fill out the form below and I will respond as soon as possible.
-              </p>
-              <div className="mt-6">
-                <ContactForm />
-              </div>
-            </div>
-          </AnimatedReveal>
-
-          <div className="space-y-6">
+        <Container>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {contactLinks.map((link, index) => (
               <AnimatedReveal key={link.label} delay={index * 0.05}>
                 <a
                   href={link.href}
                   target={link.href.startsWith("http") ? "_blank" : undefined}
                   rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  className="flex items-start gap-4 rounded-2xl border border-border bg-card p-5 shadow-sm transition-shadow hover:shadow-md"
+                  className="flex flex-col items-center gap-4 rounded-2xl border border-border bg-card p-6 shadow-sm transition-shadow hover:shadow-md text-center"
                 >
-                  <span className="rounded-lg bg-muted p-2.5 text-primary">
-                    <link.icon className="h-5 w-5" aria-hidden="true" />
+                  <span className="rounded-full bg-muted p-3 text-primary">
+                    <link.icon className="h-6 w-6" aria-hidden="true" />
                   </span>
                   <div>
                     <p className="text-sm font-medium text-muted-foreground">{link.label}</p>
-                    <p className="font-medium text-foreground">{link.value}</p>
+                    <p className="mt-1 font-medium text-foreground">{link.value}</p>
                   </div>
                 </a>
               </AnimatedReveal>

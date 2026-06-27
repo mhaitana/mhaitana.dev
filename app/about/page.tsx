@@ -1,13 +1,30 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/container";
-
 import { AnimatedReveal } from "@/components/animated-reveal";
+import { SectionHeading } from "@/components/section-heading";
+import { ExperienceCard } from "@/components/experience-card";
+import { skillCategories, experiences } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Learn about Matt Haitana's engineering journey, philosophy, and the values that guide his work.",
+    "Learn about Matt Haitana's engineering journey, philosophy, technical skills, and career timeline.",
 };
+
+function Proficiency({ level }: { level: number }) {
+  return (
+    <div className="flex gap-1" aria-label={`Proficiency ${level} of 5`}>
+      {Array.from({ length: 5 }).map((_, i) => (
+        <span
+          key={i}
+          className={`h-1.5 w-6 rounded-full ${
+            i < level ? "bg-primary" : "bg-muted"
+          }`}
+        />
+      ))}
+    </div>
+  );
+}
 
 export default function AboutPage() {
   return (
@@ -52,7 +69,7 @@ export default function AboutPage() {
                     "Ship small, learn fast",
                     "Accessibility is not optional",
                     "Clean code is kind code",
-                    "Optimize for the team, not the hero",
+                    "Optimise for the team, not the hero",
                     "Measure outcomes, not output",
                     "Stability enables speed",
                   ].map((value) => (
@@ -79,7 +96,6 @@ export default function AboutPage() {
 
           <aside className="space-y-6">
             <AnimatedReveal>
-            <AnimatedReveal>
               <div className="aspect-square overflow-hidden rounded-2xl border border-border bg-muted">
                 <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-muted to-muted/50 text-muted-foreground">
                   <span className="text-sm font-medium">Professional photo</span>
@@ -87,7 +103,7 @@ export default function AboutPage() {
               </div>
             </AnimatedReveal>
 
-
+            <AnimatedReveal>
               <div className="rounded-2xl border border-border bg-card p-6 shadow-sm">
                 <h2 className="text-lg font-semibold">Quick facts</h2>
                 <dl className="mt-4 space-y-4">
@@ -123,6 +139,55 @@ export default function AboutPage() {
               </div>
             </AnimatedReveal>
           </aside>
+        </Container>
+      </section>
+
+      <section id="skills" className="border-t border-border bg-muted/30 px-6 py-24 lg:px-8">
+        <Container>
+          <SectionHeading
+            eyebrow="Toolkit"
+            title="Skills & Expertise"
+            description="Technologies, practices, and disciplines I use to build reliable products at scale."
+          />
+          <div className="mt-12 grid gap-6 md:grid-cols-2">
+            {skillCategories.map((category, index) => (
+              <AnimatedReveal key={category.name} delay={index * 0.05}>
+                <div className="rounded-2xl border border-border bg-card p-6 shadow-sm">
+                  <h2 className="text-xl font-semibold">{category.name}</h2>
+                  <ul className="mt-5 space-y-4">
+                    {category.skills.map((skill) => (
+                      <li
+                        key={skill.name}
+                        className="flex items-center justify-between gap-4"
+                      >
+                        <span className="text-sm font-medium">{skill.name}</span>
+                        <Proficiency level={skill.proficiency} />
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </AnimatedReveal>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section id="experience" className="border-t border-border px-6 py-24 lg:px-8">
+        <Container>
+          <SectionHeading
+            eyebrow="Career"
+            title="Experience"
+            description="A timeline of roles, responsibilities, and measurable impact across product and platform teams."
+          />
+          <div className="mt-12 relative space-y-12 before:absolute before:top-3 before:bottom-3 before:left-[11px] before:w-px before:bg-border sm:before:left-[13px]">
+            {experiences.map((experience, index) => (
+              <ExperienceCard
+                key={experience.company + experience.period}
+                experience={experience}
+                index={index}
+              />
+            ))}
+          </div>
         </Container>
       </section>
     </>

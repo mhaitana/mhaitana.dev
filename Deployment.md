@@ -65,10 +65,7 @@ Update `metadataBase` in `app/layout.tsx` and the hardcoded `https://mhaitana.de
 
 ## Pre-deployment checklist
 
-- [ ] Replace placeholder testimonials with real quotes.
 - [ ] Add a real professional photo in `app/about/page.tsx`.
-- [ ] Add real project screenshots.
-- [ ] Wire up the contact form to a backend or service.
 - [ ] Upload or generate a downloadable `public/resume.pdf`.
 - [ ] Run `node scripts/fetch-github.mjs` to refresh GitHub data.
 - [ ] Verify Lighthouse scores.
@@ -90,5 +87,4 @@ export default nextConfig;
 ```
 
 Then run `npm run build`. The static files will be in the `dist` directory.
-
-> Note: `output: "export"` disables API routes and some dynamic features. The current contact form is client-side only and works with static export.
+> Note: `output: "export"` disables API routes and some dynamic features. Since all of the pages (About, GitHub, Contact, Resume) are client-side or statically rendered, static export works perfectly.

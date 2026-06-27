@@ -10,7 +10,6 @@ A world-class personal portfolio website for Matt Haitana, a senior software eng
 - **shadcn/ui** (base-nova style)
 - **Framer Motion** for subtle animations
 - **Lucide Icons**
-- **MDX** for writing content
 - **next-themes** for light/dark mode
 
 ## Features
@@ -20,12 +19,11 @@ A world-class personal portfolio website for Matt Haitana, a senior software eng
 - Static site generation for performance
 - SEO metadata, OpenGraph, Twitter cards, JSON-LD structured data
 - Sitemap and robots.txt generation
-- Multi-page architecture: Home, About, Experience, Projects, Skills, Writing, Contact, Resume
-- MDX-powered blog/writing section
-- Expandable experience timeline
-- Project filtering by category
-- GitHub dashboard with public repos, languages, and activity
-- Contact form placeholder
+- Multi-page architecture: Home, About, GitHub, Contact, Resume
+- Expandable experience timeline on the About page
+- Integrated GitHub Activity summary on the Home page (contribution graph + top languages)
+- Dedicated GitHub dashboard with public repos, languages, and activity
+- Direct contact links layout (no form) on the Contact page
 
 ## Getting started
 
@@ -69,8 +67,7 @@ See [Deployment.md](./Deployment.md).
 
 - `app/` — Next.js App Router pages
 - `components/` — Reusable UI components and sections
-- `lib/` — Data, utilities, and MDX helpers
-- `content/writing/` — MDX articles
+- `lib/` — Data, utilities, and helper functions
 - `public/` — Static assets
 
 ## Author

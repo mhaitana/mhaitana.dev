@@ -3,16 +3,14 @@ import { Container } from "@/components/container";
 import { SectionHeading } from "@/components/section-heading";
 import { AnimatedReveal } from "@/components/animated-reveal";
 import { StatCard } from "@/components/stat-card";
-import { ProjectCard } from "@/components/project-card";
-import { BlogCard } from "@/components/blog-card";
-import { Testimonials } from "@/components/testimonials";
 import { LinkButton } from "@/components/link-button";
 import { StructuredData } from "@/components/structured-data";
-import { projects, articles, experiences } from "@/lib/data";
+import { GitHubContributionGraph } from "@/components/github-contribution-graph";
+import { experiences } from "@/lib/data";
+import { getGitHubData } from "@/lib/github";
 
-export default function HomePage() {
-  const featuredProjects = projects.slice(0, 3);
-  const latestArticles = articles.slice(0, 3);
+export default async function HomePage() {
+  const { contributionCalendar, languageStats } = await getGitHubData();
   const totalYears = "10+";
 
   return (
@@ -100,38 +98,15 @@ export default function HomePage() {
 
       <section className="px-6 py-24 lg:px-8">
         <Container>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             <StatCard value={totalYears} label="Years shipping software" />
             <StatCard value="6" label="Companies & organisations" />
-            <StatCard value="3" label="Featured projects" />
             <StatCard value="100%" label="Accessibility target" />
           </div>
         </Container>
       </section>
 
       <section className="border-y border-border bg-muted/30 px-6 py-24 lg:px-8">
-        <Container>
-          <div className="flex items-end justify-between">
-            <SectionHeading
-              eyebrow="Selected work"
-              title="Featured projects"
-              description="A few products and systems I have helped design, build, and ship."
-            />
-            <LinkButton href="/projects" variant="outline" className="hidden gap-2 sm:inline-flex">
-              View all
-              <ArrowRight className="h-4 w-4" aria-hidden="true" />
-            </LinkButton>
-          </div>
-
-          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {featuredProjects.map((project, index) => (
-              <ProjectCard key={project.slug} project={project} index={index} />
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      <section className="px-6 py-24 lg:px-8">
         <Container>
           <SectionHeading
             eyebrow="Experience"
@@ -152,7 +127,7 @@ export default function HomePage() {
           </div>
 
           <div className="mt-10">
-            <LinkButton href="/experience" variant="outline" className="gap-2">
+            <LinkButton href="/about#experience" variant="outline" className="gap-2">
               Full timeline
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </LinkButton>
@@ -160,34 +135,55 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="px-6 py-24 lg:px-8">
-        <Container>
-          <SectionHeading
-            eyebrow="Testimonials"
-            title="What colleagues say"
-            description="Feedback from people I have worked alongside on product and platform teams."
-          />
-          <div className="mt-12">
-            <Testimonials />
-          </div>
-        </Container>
-      </section>
+      {contributionCalendar && (
+        <section className="px-6 py-24 lg:px-8">
+          <Container>
+            <div className="flex items-end justify-between">
+              <SectionHeading
+                eyebrow="Open Source"
+                title="GitHub Activity"
+                description="A year of contributions, side projects, and experimentation."
+              />
+              <LinkButton href="/github" variant="outline" className="hidden gap-2 sm:inline-flex">
+                View GitHub Profile
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </LinkButton>
+            </div>
+            
+            <div className="mt-8 flex flex-col lg:flex-row lg:items-stretch gap-6 items-start">
+              <AnimatedReveal className="w-full lg:w-fit max-w-full">
+                <div className="h-full w-full overflow-x-auto rounded-2xl border border-border bg-card p-6 shadow-sm flex flex-col justify-center">
+                  <GitHubContributionGraph calendar={contributionCalendar} />
+                </div>
+              </AnimatedReveal>
 
-      <section className="border-y border-border bg-muted/30 px-6 py-24 lg:px-8">
-        <Container>
-          <SectionHeading
-            eyebrow="Writing"
-            title="Latest articles"
-            description="Notes on frontend engineering, accessibility, and building teams."
-          />
-
-          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {latestArticles.map((article, index) => (
-              <BlogCard key={article.slug} article={article} index={index} />
-            ))}
-          </div>
-        </Container>
-      </section>
+              {languageStats && languageStats.length > 0 && (
+                <AnimatedReveal delay={0.1} className="w-full lg:flex-1">
+                  <div className="h-full rounded-2xl border border-border bg-card p-6 shadow-sm">
+                    <h2 className="text-lg font-semibold">Top Languages</h2>
+                    <div className="mt-5 space-y-4">
+                      {languageStats.slice(0, 3).map((lang) => (
+                        <div key={lang.name}>
+                          <div className="flex items-center justify-between text-sm">
+                            <span className="font-medium">{lang.name}</span>
+                            <span className="text-muted-foreground">{lang.percentage}%</span>
+                          </div>
+                          <div className="mt-1.5 h-2 w-full overflow-hidden rounded-full bg-muted">
+                            <div
+                              className="h-full rounded-full bg-primary"
+                              style={{ width: `${lang.percentage}%` }}
+                            />
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </AnimatedReveal>
+              )}
+            </div>
+          </Container>
+        </section>
+      )}
     </>
   );
 }
