@@ -43,17 +43,19 @@ const contactLinks = [
 export default function ContactPage() {
   return (
     <>
-      <section className="px-6 pt-24 pb-16 lg:px-8">
-        <Container>
+      <section className="relative overflow-hidden pt-24 pb-16">
+        <div className="mesh-glow-container" aria-hidden="true">
+          <div className="mesh-glow-1 animate-pulse" style={{ animationDuration: '6s' }} />
+        </div>
+        <Container className="relative z-10">
           <SectionHeading
             eyebrow="Contact"
             title="Let's work together"
-            description="I am open to senior engineering roles, consulting, and interesting collaborations."
           />
         </Container>
       </section>
 
-      <section className="px-6 pb-24 lg:px-8">
+      <section className="pb-24">
         <Container>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {contactLinks.map((link, index) => (
@@ -62,14 +64,14 @@ export default function ContactPage() {
                   href={link.href}
                   target={link.href.startsWith("http") ? "_blank" : undefined}
                   rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  className="flex flex-col items-center gap-4 rounded-2xl border border-border bg-card p-6 shadow-sm transition-shadow hover:shadow-md text-center"
+                  className="group flex flex-col items-center gap-4 rounded-2xl p-6 text-center glass-card"
                 >
-                  <span className="rounded-full bg-muted p-3 text-primary">
+                  <span className="rounded-full bg-primary/5 border border-primary/10 p-3 text-primary transition-all duration-300 group-hover:bg-primary group-hover:text-primary-foreground group-hover:scale-110">
                     <link.icon className="h-6 w-6" aria-hidden="true" />
                   </span>
                   <div>
-                    <p className="text-sm font-medium text-muted-foreground">{link.label}</p>
-                    <p className="mt-1 font-medium text-foreground">{link.value}</p>
+                    <p className="text-sm font-semibold text-muted-foreground">{link.label}</p>
+                    <p className="mt-1 font-bold text-foreground">{link.value}</p>
                   </div>
                 </a>
               </AnimatedReveal>

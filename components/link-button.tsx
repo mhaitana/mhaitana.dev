@@ -9,6 +9,7 @@ interface LinkButtonProps {
   size?: "default" | "sm" | "lg" | "icon";
   className?: string;
   external?: boolean;
+  download?: string | boolean;
 }
 
 export function LinkButton({
@@ -18,16 +19,18 @@ export function LinkButton({
   size = "default",
   className,
   external,
+  download,
 }: LinkButtonProps) {
   const classes = cn(buttonVariants({ variant, size }), className);
 
-  if (external) {
+  if (external || download) {
     return (
       <a
         href={href}
-        target="_blank"
-        rel="noopener noreferrer"
+        target={external ? "_blank" : undefined}
+        rel={external ? "noopener noreferrer" : undefined}
         className={classes}
+        download={download === true ? "" : download || undefined}
       >
         {children}
       </a>

@@ -5,7 +5,7 @@ import { ArrowLeft } from "lucide-react";
 
 export default function NotFound() {
   return (
-    <section className="flex flex-1 flex-col items-center justify-center px-6 py-32 lg:px-8">
+    <section className="flex flex-1 flex-col items-center justify-center py-32">
       <Container className="text-center">
         <p className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
           404

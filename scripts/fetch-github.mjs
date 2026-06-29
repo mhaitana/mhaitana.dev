@@ -7,8 +7,15 @@ import path from "path";
 import { fileURLToPath } from "url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+try {
+  process.loadEnvFile(path.join(__dirname, "..", ".env"));
+} catch {
+  // Ignore if .env is missing or node version doesn't support loadEnvFile
+}
+
 const OUT_PATH = path.join(__dirname, "..", "lib", "github-data.json");
-const USERNAME = "mhaitana";
+const USERNAME = process.env.GITHUB_USERNAME || "mhaitana";
 
 const token = process.env.GITHUB_TOKEN;
 const isAuthenticated = Boolean(token);
@@ -143,17 +150,17 @@ function sanitizeEvent(event) {
       ref_type: event.payload?.ref_type,
       pull_request: event.payload?.pull_request
         ? {
-            number: event.payload.pull_request.number,
-            title: event.payload.pull_request.title,
-            html_url: event.payload.pull_request.html_url,
-            state: event.payload.pull_request.state,
-          }
+          number: event.payload.pull_request.number,
+          title: event.payload.pull_request.title,
+          html_url: event.payload.pull_request.html_url,
+          state: event.payload.pull_request.state,
+        }
         : undefined,
       commits: event.payload?.commits
         ? event.payload.commits.slice(0, 3).map((c) => ({
-            sha: c.sha,
-            message: c.message,
-          }))
+          sha: c.sha,
+          message: c.message,
+        }))
         : undefined,
     },
   };
@@ -598,8 +605,7 @@ async function main() {
   console.log(`Public events: ${events.length}`);
   console.log(`Detected technologies: ${sortedTools.length}`);
   console.log(
-    `Contribution calendar: ${
-      contributionCalendar ? `${contributionCalendar.totalContributions} contributions` : "unavailable without token"
+    `Contribution calendar: ${contributionCalendar ? `${contributionCalendar.totalContributions} contributions` : "unavailable without token"
     }`
   );
 }

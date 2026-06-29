@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-27T14:24:46.581Z",
+  "fetched_at": "2026-06-29T13:36:09.325Z",
   "username": "mhaitana",
   "authenticated": true,
   "profile": {
@@ -8,7 +8,7 @@
     "avatar_url": "https://avatars.githubusercontent.com/u/107464365?v=4",
     "html_url": "https://github.com/mhaitana",
     "company": "@domain-group ",
-    "blog": "domain.com.au",
+    "blog": "mhaitana.dev",
     "location": "Melbourne, Australia",
     "bio": null,
     "public_repos": 3,
@@ -16,7 +16,7 @@
     "followers": 0,
     "following": 0,
     "created_at": "2022-06-14T07:49:58Z",
-    "updated_at": "2026-06-24T15:27:12Z"
+    "updated_at": "2026-06-27T14:59:44Z"
   },
   "repos": [
     {
@@ -27,18 +27,18 @@
       "description": "Minimalist portfolio featuring an integrated GitHub activity dashboard, career timeline, and skills breakdown. Built with Next.js 15, Tailwind v4, and Framer Motion.",
       "fork": false,
       "created_at": "2026-06-27T13:46:14Z",
-      "updated_at": "2026-06-27T14:24:07Z",
-      "pushed_at": "2026-06-27T14:19:16Z",
-      "size": 0,
+      "updated_at": "2026-06-29T04:54:17Z",
+      "pushed_at": "2026-06-29T04:54:13Z",
+      "size": 280,
       "stargazers_count": 0,
       "watchers_count": 0,
       "forks_count": 0,
       "open_issues_count": 0,
       "language": "TypeScript",
       "languages": {
-        "TypeScript": 81540,
-        "JavaScript": 19876,
-        "CSS": 5786
+        "TypeScript": 101551,
+        "JavaScript": 20038,
+        "CSS": 7299
       },
       "topics": [
         "framer-motion",
@@ -52,15 +52,12 @@
       "homepage": "https://mhaitana.dev",
       "detectedTechnologies": [
         "react",
-        "loader",
-        "mdx",
+        "analytics",
         "class-variance-authority",
         "clsx",
         "framer-motion",
-        "gray-matter",
         "lucide-react",
         "nextjs",
-        "next-mdx-remote",
         "next-themes",
         "shadcn",
         "tailwind-merge",
@@ -82,18 +79,18 @@
       "description": "Compress tool outputs, logs, files, and RAG chunks before they reach the LLM. 60-95% fewer tokens, same answers. Library, proxy, MCP server.",
       "fork": true,
       "created_at": "2026-06-26T05:27:22Z",
-      "updated_at": "2026-06-27T13:20:04Z",
-      "pushed_at": "2026-06-27T13:20:53Z",
-      "size": 47581,
+      "updated_at": "2026-06-28T23:55:30Z",
+      "pushed_at": "2026-06-28T23:57:02Z",
+      "size": 49967,
       "stargazers_count": 0,
       "watchers_count": 0,
       "forks_count": 0,
       "open_issues_count": 0,
       "language": "Python",
       "languages": {
-        "Python": 13127083,
-        "Rust": 2601219,
-        "TypeScript": 427907,
+        "Python": 13194748,
+        "Rust": 2601254,
+        "TypeScript": 427304,
         "HTML": 175301,
         "Shell": 63575,
         "PowerShell": 62412,
@@ -147,6 +144,10 @@
         "pyo3/maturin-action",
         "-/-github/workflows/docker-yml",
         "taiki-e/install-action",
+        "astral-sh/setup-uv",
+        "pypa/gh-action-pip-audit",
+        "github/codeql-action/init",
+        "github/codeql-action/analyze",
         "actions/stale"
       ]
     },
@@ -179,6 +180,186 @@
     }
   ],
   "events": [
+    {
+      "id": "14032509970",
+      "type": "PushEvent",
+      "public": true,
+      "created_at": "2026-06-29T04:54:14Z",
+      "actor": {
+        "login": "mhaitana",
+        "avatar_url": "https://avatars.githubusercontent.com/u/107464365?"
+      },
+      "repo": {
+        "id": 1282227497,
+        "name": "mhaitana/mhaitana.dev",
+        "url": "https://api.github.com/repos/mhaitana/mhaitana.dev"
+      },
+      "payload": {
+        "ref": "refs/heads/main"
+      }
+    },
+    {
+      "id": "14032127295",
+      "type": "PushEvent",
+      "public": true,
+      "created_at": "2026-06-29T04:41:01Z",
+      "actor": {
+        "login": "mhaitana",
+        "avatar_url": "https://avatars.githubusercontent.com/u/107464365?"
+      },
+      "repo": {
+        "id": 1282227497,
+        "name": "mhaitana/mhaitana.dev",
+        "url": "https://api.github.com/repos/mhaitana/mhaitana.dev"
+      },
+      "payload": {
+        "ref": "refs/heads/main"
+      }
+    },
+    {
+      "id": "14028413662",
+      "type": "PushEvent",
+      "public": true,
+      "created_at": "2026-06-29T02:30:19Z",
+      "actor": {
+        "login": "mhaitana",
+        "avatar_url": "https://avatars.githubusercontent.com/u/107464365?"
+      },
+      "repo": {
+        "id": 1282227497,
+        "name": "mhaitana/mhaitana.dev",
+        "url": "https://api.github.com/repos/mhaitana/mhaitana.dev"
+      },
+      "payload": {
+        "ref": "refs/heads/main"
+      }
+    },
+    {
+      "id": "14024403870",
+      "type": "PushEvent",
+      "public": true,
+      "created_at": "2026-06-28T23:55:41Z",
+      "actor": {
+        "login": "mhaitana",
+        "avatar_url": "https://avatars.githubusercontent.com/u/107464365?"
+      },
+      "repo": {
+        "id": 1280967831,
+        "name": "mhaitana/headroom",
+        "url": "https://api.github.com/repos/mhaitana/headroom"
+      },
+      "payload": {
+        "ref": "refs/heads/feat/bedrock-application-inference-profile-arn-support"
+      }
+    },
+    {
+      "id": "14024397595",
+      "type": "PushEvent",
+      "public": true,
+      "created_at": "2026-06-28T23:55:23Z",
+      "actor": {
+        "login": "mhaitana",
+        "avatar_url": "https://avatars.githubusercontent.com/u/107464365?"
+      },
+      "repo": {
+        "id": 1280967831,
+        "name": "mhaitana/headroom",
+        "url": "https://api.github.com/repos/mhaitana/headroom"
+      },
+      "payload": {
+        "ref": "refs/heads/main"
+      }
+    },
+    {
+      "id": "14023597309",
+      "type": "PushEvent",
+      "public": true,
+      "created_at": "2026-06-28T23:18:38Z",
+      "actor": {
+        "login": "mhaitana",
+        "avatar_url": "https://avatars.githubusercontent.com/u/107464365?"
+      },
+      "repo": {
+        "id": 1282227497,
+        "name": "mhaitana/mhaitana.dev",
+        "url": "https://api.github.com/repos/mhaitana/mhaitana.dev"
+      },
+      "payload": {
+        "ref": "refs/heads/main"
+      }
+    },
+    {
+      "id": "14008320130",
+      "type": "PushEvent",
+      "public": true,
+      "created_at": "2026-06-28T13:50:27Z",
+      "actor": {
+        "login": "mhaitana",
+        "avatar_url": "https://avatars.githubusercontent.com/u/107464365?"
+      },
+      "repo": {
+        "id": 1282227497,
+        "name": "mhaitana/mhaitana.dev",
+        "url": "https://api.github.com/repos/mhaitana/mhaitana.dev"
+      },
+      "payload": {
+        "ref": "refs/heads/main"
+      }
+    },
+    {
+      "id": "13990575354",
+      "type": "PushEvent",
+      "public": true,
+      "created_at": "2026-06-28T00:23:13Z",
+      "actor": {
+        "login": "mhaitana",
+        "avatar_url": "https://avatars.githubusercontent.com/u/107464365?"
+      },
+      "repo": {
+        "id": 1280967831,
+        "name": "mhaitana/headroom",
+        "url": "https://api.github.com/repos/mhaitana/headroom"
+      },
+      "payload": {
+        "ref": "refs/heads/main"
+      }
+    },
+    {
+      "id": "13976916258",
+      "type": "PushEvent",
+      "public": true,
+      "created_at": "2026-06-27T14:54:54Z",
+      "actor": {
+        "login": "mhaitana",
+        "avatar_url": "https://avatars.githubusercontent.com/u/107464365?"
+      },
+      "repo": {
+        "id": 1282227497,
+        "name": "mhaitana/mhaitana.dev",
+        "url": "https://api.github.com/repos/mhaitana/mhaitana.dev"
+      },
+      "payload": {
+        "ref": "refs/heads/main"
+      }
+    },
+    {
+      "id": "13976577831",
+      "type": "PushEvent",
+      "public": true,
+      "created_at": "2026-06-27T14:42:04Z",
+      "actor": {
+        "login": "mhaitana",
+        "avatar_url": "https://avatars.githubusercontent.com/u/107464365?"
+      },
+      "repo": {
+        "id": 1282227497,
+        "name": "mhaitana/mhaitana.dev",
+        "url": "https://api.github.com/repos/mhaitana/mhaitana.dev"
+      },
+      "payload": {
+        "ref": "refs/heads/main"
+      }
+    },
     {
       "id": "13975986171",
       "type": "PushEvent",
@@ -486,119 +667,28 @@
       "payload": {
         "ref": "refs/heads/main"
       }
-    },
-    {
-      "id": "13404270167",
-      "type": "PushEvent",
-      "public": true,
-      "created_at": "2026-06-16T11:46:26Z",
-      "actor": {
-        "login": "mhaitana",
-        "avatar_url": "https://avatars.githubusercontent.com/u/107464365?"
-      },
-      "repo": {
-        "id": 1270191512,
-        "name": "mhaitana/docker-llm-stack",
-        "url": "https://api.github.com/repos/mhaitana/docker-llm-stack"
-      },
-      "payload": {
-        "ref": "refs/heads/main"
-      }
-    },
-    {
-      "id": "13404003917",
-      "type": "PushEvent",
-      "public": true,
-      "created_at": "2026-06-16T11:40:30Z",
-      "actor": {
-        "login": "mhaitana",
-        "avatar_url": "https://avatars.githubusercontent.com/u/107464365?"
-      },
-      "repo": {
-        "id": 1270191512,
-        "name": "mhaitana/docker-llm-stack",
-        "url": "https://api.github.com/repos/mhaitana/docker-llm-stack"
-      },
-      "payload": {
-        "ref": "refs/heads/main"
-      }
-    },
-    {
-      "id": "13351670147",
-      "type": "PushEvent",
-      "public": true,
-      "created_at": "2026-06-15T13:41:34Z",
-      "actor": {
-        "login": "mhaitana",
-        "avatar_url": "https://avatars.githubusercontent.com/u/107464365?"
-      },
-      "repo": {
-        "id": 1270191512,
-        "name": "mhaitana/docker-llm-stack",
-        "url": "https://api.github.com/repos/mhaitana/docker-llm-stack"
-      },
-      "payload": {
-        "ref": "refs/heads/main"
-      }
-    },
-    {
-      "id": "13350971457",
-      "type": "PushEvent",
-      "public": true,
-      "created_at": "2026-06-15T13:28:07Z",
-      "actor": {
-        "login": "mhaitana",
-        "avatar_url": "https://avatars.githubusercontent.com/u/107464365?"
-      },
-      "repo": {
-        "id": 1270191512,
-        "name": "mhaitana/docker-llm-stack",
-        "url": "https://api.github.com/repos/mhaitana/docker-llm-stack"
-      },
-      "payload": {
-        "ref": "refs/heads/main"
-      }
-    },
-    {
-      "id": "13350851017",
-      "type": "CreateEvent",
-      "public": true,
-      "created_at": "2026-06-15T13:25:47Z",
-      "actor": {
-        "login": "mhaitana",
-        "avatar_url": "https://avatars.githubusercontent.com/u/107464365?"
-      },
-      "repo": {
-        "id": 1270191512,
-        "name": "mhaitana/docker-llm-stack",
-        "url": "https://api.github.com/repos/mhaitana/docker-llm-stack"
-      },
-      "payload": {
-        "ref": "main",
-        "ref_type": "branch"
-      }
     }
   ],
   "languageStats": [
     {
-      "name": "Python",
-      "bytes": 13181274,
-      "percentage": 45.5
+      "name": "TypeScript",
+      "bytes": 15559453,
+      "percentage": 48.1
     },
     {
-      "name": "TypeScript",
-      "bytes": 12300069,
-      "percentage": 42.5
+      "name": "Python",
+      "bytes": 13248939,
+      "percentage": 40.9
     },
     {
       "name": "Rust",
-      "bytes": 2601219,
-      "percentage": 9
+      "bytes": 2601254,
+      "percentage": 8
     },
     {
       "name": "JavaScript",
-      "bytes": 204365,
-      "percentage": 0.7
+      "bytes": 278761,
+      "percentage": 0.9
     },
     {
       "name": "HTML",
@@ -608,21 +698,21 @@
     {
       "name": "PLpgSQL",
       "bytes": 137880,
-      "percentage": 0.5
+      "percentage": 0.4
     },
     {
       "name": "TSQL",
       "bytes": 106015,
-      "percentage": 0.4
+      "percentage": 0.3
     },
     {
       "name": "CSS",
-      "bytes": 70032,
-      "percentage": 0.2
+      "bytes": 85089,
+      "percentage": 0.3
     },
     {
       "name": "Shell",
-      "bytes": 69051,
+      "bytes": 69677,
       "percentage": 0.2
     },
     {
@@ -732,7 +822,7 @@
     ]
   },
   "contributionCalendar": {
-    "totalContributions": 1084,
+    "totalContributions": 1121,
     "weeks": [
       {
         "contributionDays": [
@@ -764,7 +854,7 @@
           {
             "date": "2025-07-04",
             "contributionCount": 5,
-            "color": "#40c463"
+            "color": "#9be9a8"
           },
           {
             "date": "2025-07-05",
@@ -837,7 +927,7 @@
           {
             "date": "2025-07-17",
             "contributionCount": 11,
-            "color": "#30a14e"
+            "color": "#40c463"
           },
           {
             "date": "2025-07-18",
@@ -910,7 +1000,7 @@
           {
             "date": "2025-07-30",
             "contributionCount": 6,
-            "color": "#40c463"
+            "color": "#9be9a8"
           },
           {
             "date": "2025-07-31",
@@ -949,7 +1039,7 @@
           {
             "date": "2025-08-06",
             "contributionCount": 5,
-            "color": "#40c463"
+            "color": "#9be9a8"
           },
           {
             "date": "2025-08-07",
@@ -993,7 +1083,7 @@
           {
             "date": "2025-08-14",
             "contributionCount": 5,
-            "color": "#40c463"
+            "color": "#9be9a8"
           },
           {
             "date": "2025-08-15",
@@ -1017,7 +1107,7 @@
           {
             "date": "2025-08-18",
             "contributionCount": 5,
-            "color": "#40c463"
+            "color": "#9be9a8"
           },
           {
             "date": "2025-08-19",
@@ -1037,7 +1127,7 @@
           {
             "date": "2025-08-22",
             "contributionCount": 6,
-            "color": "#40c463"
+            "color": "#9be9a8"
           },
           {
             "date": "2025-08-23",
@@ -1061,7 +1151,7 @@
           {
             "date": "2025-08-26",
             "contributionCount": 5,
-            "color": "#40c463"
+            "color": "#9be9a8"
           },
           {
             "date": "2025-08-27",
@@ -1266,7 +1356,7 @@
           {
             "date": "2025-10-02",
             "contributionCount": 5,
-            "color": "#40c463"
+            "color": "#9be9a8"
           },
           {
             "date": "2025-10-03",
@@ -1349,7 +1439,7 @@
           {
             "date": "2025-10-17",
             "contributionCount": 6,
-            "color": "#40c463"
+            "color": "#9be9a8"
           },
           {
             "date": "2025-10-18",
@@ -1446,7 +1536,7 @@
           {
             "date": "2025-11-03",
             "contributionCount": 5,
-            "color": "#40c463"
+            "color": "#9be9a8"
           },
           {
             "date": "2025-11-04",
@@ -1534,7 +1624,7 @@
           {
             "date": "2025-11-19",
             "contributionCount": 6,
-            "color": "#40c463"
+            "color": "#9be9a8"
           },
           {
             "date": "2025-11-20",
@@ -1568,12 +1658,12 @@
           {
             "date": "2025-11-25",
             "contributionCount": 5,
-            "color": "#40c463"
+            "color": "#9be9a8"
           },
           {
             "date": "2025-11-26",
             "contributionCount": 5,
-            "color": "#40c463"
+            "color": "#9be9a8"
           },
           {
             "date": "2025-11-27",
@@ -1831,7 +1921,7 @@
           {
             "date": "2026-01-11",
             "contributionCount": 5,
-            "color": "#40c463"
+            "color": "#9be9a8"
           },
           {
             "date": "2026-01-12",
@@ -1924,7 +2014,7 @@
           {
             "date": "2026-01-28",
             "contributionCount": 5,
-            "color": "#40c463"
+            "color": "#9be9a8"
           },
           {
             "date": "2026-01-29",
@@ -1992,7 +2082,7 @@
           {
             "date": "2026-02-09",
             "contributionCount": 6,
-            "color": "#40c463"
+            "color": "#9be9a8"
           },
           {
             "date": "2026-02-10",
@@ -2007,7 +2097,7 @@
           {
             "date": "2026-02-12",
             "contributionCount": 5,
-            "color": "#40c463"
+            "color": "#9be9a8"
           },
           {
             "date": "2026-02-13",
@@ -2031,7 +2121,7 @@
           {
             "date": "2026-02-16",
             "contributionCount": 16,
-            "color": "#216e39"
+            "color": "#30a14e"
           },
           {
             "date": "2026-02-17",
@@ -2041,7 +2131,7 @@
           {
             "date": "2026-02-18",
             "contributionCount": 6,
-            "color": "#40c463"
+            "color": "#9be9a8"
           },
           {
             "date": "2026-02-19",
@@ -2114,7 +2204,7 @@
           {
             "date": "2026-03-03",
             "contributionCount": 12,
-            "color": "#30a14e"
+            "color": "#40c463"
           },
           {
             "date": "2026-03-04",
@@ -2134,7 +2224,7 @@
           {
             "date": "2026-03-07",
             "contributionCount": 5,
-            "color": "#40c463"
+            "color": "#9be9a8"
           }
         ]
       },
@@ -2168,7 +2258,7 @@
           {
             "date": "2026-03-13",
             "contributionCount": 15,
-            "color": "#216e39"
+            "color": "#30a14e"
           },
           {
             "date": "2026-03-14",
@@ -2212,7 +2302,7 @@
           {
             "date": "2026-03-21",
             "contributionCount": 6,
-            "color": "#40c463"
+            "color": "#9be9a8"
           }
         ]
       },
@@ -2231,17 +2321,17 @@
           {
             "date": "2026-03-24",
             "contributionCount": 12,
-            "color": "#30a14e"
+            "color": "#40c463"
           },
           {
             "date": "2026-03-25",
             "contributionCount": 16,
-            "color": "#216e39"
+            "color": "#30a14e"
           },
           {
             "date": "2026-03-26",
             "contributionCount": 17,
-            "color": "#216e39"
+            "color": "#30a14e"
           },
           {
             "date": "2026-03-27",
@@ -2275,7 +2365,7 @@
           {
             "date": "2026-04-01",
             "contributionCount": 6,
-            "color": "#40c463"
+            "color": "#9be9a8"
           },
           {
             "date": "2026-04-02",
@@ -2304,7 +2394,7 @@
           {
             "date": "2026-04-06",
             "contributionCount": 11,
-            "color": "#30a14e"
+            "color": "#40c463"
           },
           {
             "date": "2026-04-07",
@@ -2319,7 +2409,7 @@
           {
             "date": "2026-04-09",
             "contributionCount": 11,
-            "color": "#30a14e"
+            "color": "#40c463"
           },
           {
             "date": "2026-04-10",
@@ -2353,22 +2443,22 @@
           {
             "date": "2026-04-15",
             "contributionCount": 11,
-            "color": "#30a14e"
+            "color": "#40c463"
           },
           {
             "date": "2026-04-16",
             "contributionCount": 11,
-            "color": "#30a14e"
+            "color": "#40c463"
           },
           {
             "date": "2026-04-17",
             "contributionCount": 17,
-            "color": "#216e39"
+            "color": "#30a14e"
           },
           {
             "date": "2026-04-18",
             "contributionCount": 5,
-            "color": "#40c463"
+            "color": "#9be9a8"
           }
         ]
       },
@@ -2397,7 +2487,7 @@
           {
             "date": "2026-04-23",
             "contributionCount": 5,
-            "color": "#40c463"
+            "color": "#9be9a8"
           },
           {
             "date": "2026-04-24",
@@ -2426,7 +2516,7 @@
           {
             "date": "2026-04-28",
             "contributionCount": 6,
-            "color": "#40c463"
+            "color": "#9be9a8"
           },
           {
             "date": "2026-04-29",
@@ -2465,12 +2555,12 @@
           {
             "date": "2026-05-05",
             "contributionCount": 5,
-            "color": "#40c463"
+            "color": "#9be9a8"
           },
           {
             "date": "2026-05-06",
             "contributionCount": 6,
-            "color": "#40c463"
+            "color": "#9be9a8"
           },
           {
             "date": "2026-05-07",
@@ -2509,7 +2599,7 @@
           {
             "date": "2026-05-13",
             "contributionCount": 11,
-            "color": "#30a14e"
+            "color": "#40c463"
           },
           {
             "date": "2026-05-14",
@@ -2621,12 +2711,12 @@
           {
             "date": "2026-06-02",
             "contributionCount": 6,
-            "color": "#40c463"
+            "color": "#9be9a8"
           },
           {
             "date": "2026-06-03",
             "contributionCount": 6,
-            "color": "#40c463"
+            "color": "#9be9a8"
           },
           {
             "date": "2026-06-04",
@@ -2694,12 +2784,12 @@
           {
             "date": "2026-06-15",
             "contributionCount": 6,
-            "color": "#40c463"
+            "color": "#9be9a8"
           },
           {
             "date": "2026-06-16",
             "contributionCount": 12,
-            "color": "#30a14e"
+            "color": "#40c463"
           },
           {
             "date": "2026-06-17",
@@ -2713,13 +2803,13 @@
           },
           {
             "date": "2026-06-19",
-            "contributionCount": 0,
-            "color": "#ebedf0"
+            "contributionCount": 6,
+            "color": "#9be9a8"
           },
           {
             "date": "2026-06-20",
-            "contributionCount": 0,
-            "color": "#ebedf0"
+            "contributionCount": 2,
+            "color": "#9be9a8"
           }
         ]
       },
@@ -2727,17 +2817,17 @@
         "contributionDays": [
           {
             "date": "2026-06-21",
-            "contributionCount": 0,
-            "color": "#ebedf0"
+            "contributionCount": 4,
+            "color": "#9be9a8"
           },
           {
             "date": "2026-06-22",
-            "contributionCount": 0,
-            "color": "#ebedf0"
+            "contributionCount": 7,
+            "color": "#40c463"
           },
           {
             "date": "2026-06-23",
-            "contributionCount": 6,
+            "contributionCount": 8,
             "color": "#40c463"
           },
           {
@@ -2752,12 +2842,12 @@
           },
           {
             "date": "2026-06-26",
-            "contributionCount": 2,
+            "contributionCount": 3,
             "color": "#9be9a8"
           },
           {
             "date": "2026-06-27",
-            "contributionCount": 2,
+            "contributionCount": 4,
             "color": "#9be9a8"
           }
         ]
@@ -2766,8 +2856,13 @@
         "contributionDays": [
           {
             "date": "2026-06-28",
-            "contributionCount": 2,
-            "color": "#9be9a8"
+            "contributionCount": 24,
+            "color": "#216e39"
+          },
+          {
+            "date": "2026-06-29",
+            "contributionCount": 14,
+            "color": "#30a14e"
           }
         ]
       }

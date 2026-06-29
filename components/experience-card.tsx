@@ -18,11 +18,11 @@ export function ExperienceCard({ experience, index }: ExperienceCardProps) {
   return (
     <AnimatedReveal delay={index * 0.05}>
       <article className="relative pl-8 sm:pl-10">
-        <span className="absolute left-0 top-1 flex h-6 w-6 items-center justify-center rounded-full border border-border bg-card text-primary shadow-sm sm:h-7 sm:w-7">
+        <span className="absolute left-0 top-1 flex h-6 w-6 items-center justify-center rounded-full border border-primary/30 bg-background text-primary shadow-sm shadow-primary/10 sm:h-7 sm:w-7">
           <span className="h-2 w-2 rounded-full bg-primary" />
         </span>
 
-        <div className="rounded-2xl border border-border bg-card p-5 shadow-sm transition-shadow hover:shadow-md sm:p-6">
+        <div className="glass-card rounded-2xl p-5 sm:p-6">
           <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between">
             <div>
               <h3 className="text-lg font-semibold text-foreground">

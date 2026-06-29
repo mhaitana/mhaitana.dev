@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 export default function ResumePage() {
   return (
     <>
-      <section className="no-print px-6 pt-24 pb-8 lg:px-8">
+      <section className="no-print pt-24 pb-8">
         <Container className="flex flex-wrap items-center justify-between gap-4">
           <div>
             <h1 className="text-3xl font-bold tracking-tight">Resume</h1>
@@ -27,20 +27,20 @@ export default function ResumePage() {
           <div className="flex gap-3">
             <PrintButton />
             <LinkButton
-              href="mailto:mhaitana@gmail.com?subject=Resume request"
+              href="/resume.pdf"
               size="sm"
               className="gap-2"
-              external
+              download="Matt_Haitana_Resume.pdf"
             >
               <Download className="h-4 w-4" aria-hidden="true" />
-              Request PDF
+              Download PDF
             </LinkButton>
           </div>
         </Container>
       </section>
 
-      <section className="px-6 pb-24 lg:px-8 print:pb-0">
-        <Container className="max-w-3xl rounded-2xl border border-border bg-card p-8 shadow-sm print:border-0 print:shadow-none print:p-0">
+      <section className="pb-24 print:pb-0">
+        <Container className="max-w-3xl rounded-2xl border border-border bg-card p-5 sm:p-8 shadow-sm print:border-0 print:shadow-none print:p-0">
           <header className="border-b border-border pb-6">
             <h2 className="text-3xl font-bold tracking-tight">Matt Haitana</h2>
             <p className="mt-1 text-lg text-muted-foreground">Senior Software Engineer</p>
@@ -57,7 +57,7 @@ export default function ResumePage() {
               Profile
             </h3>
             <p className="mt-2 text-muted-foreground">
-              Senior software engineer with 10+ years of experience building fast, accessible, and scalable web platforms. Proven track record leading frontend products, improving deployment practices, and growing engineering teams in real estate and technology organisations.
+              Senior software engineer with over a decade of experience designing and building high-performance web systems, APIs, native applications, and developer tooling. Proven expertise architecting multi-client GraphQL BFF servers, implementing composable design systems at scale, and optimizing multi-stage CI/CD pipelines deploying to containerized environments (AWS ECS). Deeply engaged in local-first AI system design, developer agent frameworks, and high-performance Rust/Python gateways.
             </p>
           </div>
 
@@ -67,7 +67,7 @@ export default function ResumePage() {
             </h3>
             <div className="mt-4 space-y-6">
               {experiences.map((exp) => (
-                <div key={exp.company + exp.period}>
+                <div key={exp.company + exp.period} className="break-inside-avoid">
                   <div className="flex flex-col justify-between gap-1 sm:flex-row sm:items-center">
                     <h4 className="font-semibold">{exp.company}</h4>
                     <span className="text-sm text-muted-foreground">{exp.period}</span>
@@ -89,7 +89,7 @@ export default function ResumePage() {
             </h3>
             <div className="mt-3 grid gap-4 sm:grid-cols-2">
               {skillCategories.map((category) => (
-                <div key={category.name}>
+                <div key={category.name} className="break-inside-avoid">
                   <h4 className="text-sm font-semibold">{category.name}</h4>
                   <p className="text-sm text-muted-foreground">
                     {category.skills.map((s) => s.name).join(", ")}

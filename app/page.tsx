@@ -16,9 +16,13 @@ export default async function HomePage() {
   return (
     <>
       <StructuredData />
-      <section className="relative overflow-hidden border-b border-border bg-background px-6 pt-32 pb-24 lg:px-8">
+      <section className="relative overflow-hidden border-b border-border/40 bg-background pt-32 pb-24">
+        <div className="mesh-glow-container" aria-hidden="true">
+          <div className="mesh-glow-1" />
+          <div className="mesh-glow-2" />
+        </div>
         <Container className="relative z-10">
-          <div className="max-w-3xl">
+          <div className="max-w-5xl">
             <AnimatedReveal>
               <p className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
                 Senior Software Engineer
@@ -26,16 +30,16 @@ export default async function HomePage() {
             </AnimatedReveal>
 
             <AnimatedReveal delay={0.05}>
-              <h1 className="mt-6 text-5xl font-bold tracking-tight text-foreground sm:text-6xl lg:text-7xl">
-                Matt Haitana
+              <h1 className="mt-6 text-5xl font-bold tracking-tight sm:text-6xl lg:text-7xl">
+                <span className="text-gradient">Matt Haitana</span>
               </h1>
             </AnimatedReveal>
 
             <AnimatedReveal delay={0.1}>
-              <p className="mt-6 text-xl leading-relaxed text-muted-foreground sm:text-2xl">
-                I design and build fast, accessible web platforms that scale.
-                Currently engineering premium real estate experiences at{" "}
-                <strong className="text-foreground">CoStar Group</strong>.
+              <p className="mt-6 text-xl leading-relaxed text-muted-foreground sm:text-2xl pe-0 sm:pe-12">
+                I design and build high-performance web systems, APIs, and accessible interfaces that scale.
+                Currently engineering premium real estate platforms at{" "}
+                <strong className="text-foreground">CoStar Group</strong>, with a focus on local-first AI systems, developer tooling, and composable design systems.
               </p>
             </AnimatedReveal>
 
@@ -45,8 +49,6 @@ export default async function HomePage() {
                   <MapPin className="h-4 w-4" aria-hidden="true" />
                   Melbourne, Australia
                 </span>
-                <span className="hidden sm:inline">·</span>
-                <span>Open to senior engineering roles</span>
               </div>
             </AnimatedReveal>
 
@@ -96,7 +98,7 @@ export default async function HomePage() {
         </Container>
       </section>
 
-      <section className="px-6 py-24 lg:px-8">
+      <section className="py-24">
         <Container>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             <StatCard value={totalYears} label="Years shipping software" />
@@ -106,7 +108,7 @@ export default async function HomePage() {
         </Container>
       </section>
 
-      <section className="border-y border-border bg-muted/30 px-6 py-24 lg:px-8">
+      <section className="border-y border-border/40 bg-muted/20 py-24">
         <Container>
           <SectionHeading
             eyebrow="Experience"
@@ -117,10 +119,10 @@ export default async function HomePage() {
           <div className="mt-12 grid gap-6 md:grid-cols-2">
             {experiences.slice(0, 4).map((exp) => (
               <AnimatedReveal key={exp.company}>
-                <div className="rounded-2xl border border-border bg-card p-6 shadow-sm">
-                  <h3 className="text-lg font-semibold">{exp.company}</h3>
+                <div className="glass-card rounded-2xl p-6">
+                  <h3 className="text-lg font-bold">{exp.company}</h3>
                   <p className="text-sm text-muted-foreground">{exp.title}</p>
-                  <p className="mt-2 text-xs text-muted-foreground">{exp.period}</p>
+                  <p className="mt-3 text-xs font-semibold text-primary/80">{exp.period}</p>
                 </div>
               </AnimatedReveal>
             ))}
@@ -136,7 +138,7 @@ export default async function HomePage() {
       </section>
 
       {contributionCalendar && (
-        <section className="px-6 py-24 lg:px-8">
+        <section className="py-24">
           <Container>
             <div className="flex items-end justify-between">
               <SectionHeading
@@ -152,23 +154,23 @@ export default async function HomePage() {
             
             <div className="mt-8 flex flex-col lg:flex-row lg:items-stretch gap-6 items-start">
               <AnimatedReveal className="w-full lg:w-fit max-w-full">
-                <div className="h-full w-full overflow-x-auto rounded-2xl border border-border bg-card p-6 shadow-sm flex flex-col justify-center">
+                <div className="glass-card h-full w-full overflow-x-auto rounded-2xl p-6 flex flex-col justify-center">
                   <GitHubContributionGraph calendar={contributionCalendar} />
                 </div>
               </AnimatedReveal>
 
               {languageStats && languageStats.length > 0 && (
                 <AnimatedReveal delay={0.1} className="w-full lg:flex-1">
-                  <div className="h-full rounded-2xl border border-border bg-card p-6 shadow-sm">
-                    <h2 className="text-lg font-semibold">Top Languages</h2>
+                  <div className="glass-card h-full rounded-2xl p-6">
+                    <h2 className="text-lg font-bold">Top Languages</h2>
                     <div className="mt-5 space-y-4">
                       {languageStats.slice(0, 3).map((lang) => (
                         <div key={lang.name}>
                           <div className="flex items-center justify-between text-sm">
-                            <span className="font-medium">{lang.name}</span>
+                            <span className="font-semibold">{lang.name}</span>
                             <span className="text-muted-foreground">{lang.percentage}%</span>
                           </div>
-                          <div className="mt-1.5 h-2 w-full overflow-hidden rounded-full bg-muted">
+                          <div className="mt-2 h-2 w-full overflow-hidden rounded-full bg-muted/60">
                             <div
                               className="h-full rounded-full bg-primary"
                               style={{ width: `${lang.percentage}%` }}

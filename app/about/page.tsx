@@ -20,8 +20,10 @@ function Proficiency({ level }: { level: number }) {
       {Array.from({ length: 5 }).map((_, i) => (
         <span
           key={i}
-          className={`h-1.5 w-6 rounded-full ${
-            i < level ? "bg-primary" : "bg-muted"
+          className={`h-1.5 w-4 sm:w-6 rounded-full transition-all duration-300 ${
+            i < level 
+              ? "bg-primary shadow-sm shadow-primary/10" 
+              : "bg-muted/80"
           }`}
         />
       ))}
@@ -32,34 +34,37 @@ function Proficiency({ level }: { level: number }) {
 export default function AboutPage() {
   return (
     <>
-      <section className="px-6 pt-24 pb-16 lg:px-8">
-        <Container>
+      <section className="relative overflow-hidden pt-24 pb-16">
+        <div className="mesh-glow-container" aria-hidden="true">
+          <div className="mesh-glow-1 animate-pulse" style={{ animationDuration: '8s' }} />
+        </div>
+        <Container className="relative z-10">
           <AnimatedReveal>
-            <p className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
+            <p className="text-sm font-semibold uppercase tracking-wider text-primary">
               About
             </p>
           </AnimatedReveal>
           <AnimatedReveal delay={0.05}>
-            <h1 className="mt-4 text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
-              Engineering with purpose
+            <h1 className="mt-4 text-4xl font-bold tracking-tight sm:text-5xl">
+              <span className="text-gradient">Engineering with purpose</span>
             </h1>
           </AnimatedReveal>
         </Container>
       </section>
 
-      <section className="px-6 pb-24 lg:px-8">
+      <section className="pb-24">
         <Container className="grid gap-12 lg:grid-cols-[1fr_320px]">
-          <div className="space-y-12">
+          <div className="space-y-12 min-w-0">
             <AnimatedReveal>
               <div className="max-w-2xl space-y-4">
                 <p className="text-lg leading-relaxed text-muted-foreground">
-                  I am a senior software engineer based in Melbourne, Australia, with more than a decade of experience building web products across real estate, defence, and technology sectors.
+                  I am a senior software engineer based in Melbourne, Australia, with over a decade of experience building high-performance web systems, native applications, and developer tooling across real estate, defence, and technology sectors.
                 </p>
                 <p className="text-muted-foreground">
-                  My work sits at the intersection of product thinking and frontend craft. I care deeply about performance, accessibility, and the long-term health of codebases. Whether I am shipping a real-time auction interface, refactoring a deployment pipeline, or mentoring a growing team, I aim for calm, deliberate engineering that compounds over time.
+                  My engineering philosophy focuses on building robust backend-for-frontend (BFF) layers, high-throughput systems, and modular frontends. I have extensive experience designing type-safe GraphQL APIs, maintaining complex composable design systems, and optimizing multi-stage CI/CD pipelines deploying to containerized environments like AWS ECS.
                 </p>
                 <p className="text-muted-foreground">
-                  I joined the New Zealand Defence Force as a developer and simulation modeller before moving into commercial software. At Real Time Agent and later Domain, I spent five years shaping agent-facing platforms, eventually growing into a senior engineering role. I am now at CoStar Group, building premium experiences for Domain Skylight.
+                  Lately, I have been deeply engaged in local-first AI infrastructures—specifically building Rust and Python-based gateways, context compression engines, and Model Context Protocol (MCP) integrations. Outside of product engineering, my background includes simulation modeling for the New Zealand Defence Force and ongoing service as an Army reservist, which instills strong discipline, leadership, and mission-focus in all of my engineering projects.
                 </p>
               </div>
             </AnimatedReveal>
@@ -78,7 +83,7 @@ export default function AboutPage() {
                   ].map((value) => (
                     <li
                       key={value}
-                      className="rounded-xl border border-border bg-card p-4 text-sm font-medium text-foreground shadow-sm"
+                      className="glass-card rounded-xl p-4 text-sm font-semibold text-foreground shadow-sm hover:scale-[1.02]"
                     >
                       {value}
                     </li>
@@ -91,7 +96,7 @@ export default function AboutPage() {
               <div className="max-w-2xl">
                 <h2 className="text-2xl font-bold tracking-tight">Current interests</h2>
                 <p className="mt-4 text-muted-foreground">
-                  I am currently exploring AI-augmented developer workflows, design systems at scale, and the craft of zero-clutter product interfaces. Outside of work, I serve as an Army reservist, which keeps my discipline, teamwork, and decision-making sharp.
+                  I am currently exploring local-first AI gateway proxies, advanced context-compression algorithms in Rust, and Model Context Protocol (MCP) server tooling. I also keep a strong interest in high-efficiency build pipelines, geospatial routing systems, and next-generation state synchronization in real-time interfaces.
                 </p>
               </div>
             </AnimatedReveal>
@@ -99,40 +104,32 @@ export default function AboutPage() {
 
           <aside className="space-y-6">
             <AnimatedReveal>
-              <div className="aspect-square overflow-hidden rounded-2xl border border-border bg-muted">
-                <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-muted to-muted/50 text-muted-foreground">
-                  <span className="text-sm font-medium">Professional photo</span>
-                </div>
-              </div>
-            </AnimatedReveal>
-
-            <AnimatedReveal>
-              <div className="rounded-2xl border border-border bg-card p-6 shadow-sm">
-                <h2 className="text-lg font-semibold">Quick facts</h2>
+              <div className="glass-card rounded-2xl p-6">
+                <h2 className="text-lg font-bold text-gradient">Quick facts</h2>
                 <dl className="mt-4 space-y-4">
                   <div>
-                    <dt className="text-xs font-medium uppercase tracking-wider text-muted-foreground">Location</dt>
-                    <dd className="mt-1 text-sm">Melbourne, Australia</dd>
+                    <dt className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Location</dt>
+                    <dd className="mt-1 text-sm font-medium">Melbourne, Australia</dd>
                   </div>
                   <div>
-                    <dt className="text-xs font-medium uppercase tracking-wider text-muted-foreground">Experience</dt>
-                    <dd className="mt-1 text-sm">10+ years</dd>
+                    <dt className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Experience</dt>
+                    <dd className="mt-1 text-sm font-medium">10+ years</dd>
                   </div>
                   <div>
-                    <dt className="text-xs font-medium uppercase tracking-wider text-muted-foreground">Focus</dt>
-                    <dd className="mt-1 text-sm">Frontend platforms, real-time UI, deployment</dd>
+                    <dt className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Focus</dt>
+                    <dd className="mt-1 text-sm font-medium">Systems engineering, GraphQL BFFs, Frontend platforms, composable design systems</dd>
                   </div>
                   <div>
-                    <dt className="text-xs font-medium uppercase tracking-wider text-muted-foreground">Currently</dt>
-                    <dd className="mt-1 text-sm">Senior Software Engineer at CoStar Group</dd>
+                    <dt className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Currently</dt>
+                    <dd className="mt-1 text-sm font-medium">Senior Software Engineer at CoStar Group</dd>
                   </div>
                 </dl>
               </div>
             </AnimatedReveal>
 
             <AnimatedReveal delay={0.1}>
-              <div className="rounded-2xl border border-border bg-card p-6 shadow-sm">
-                <h2 className="text-lg font-semibold">Core values</h2>
+              <div className="glass-card rounded-2xl p-6">
+                <h2 className="text-lg font-bold text-gradient">Core values</h2>
                 <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
                   <li><strong className="text-foreground">Ownership:</strong> End-to-end accountability for outcomes.</li>
                   <li><strong className="text-foreground">Clarity:</strong> Simple solutions beat clever ones.</li>
@@ -145,7 +142,7 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      <section id="skills" className="border-t border-border bg-muted/30 px-6 py-24 lg:px-8">
+      <section id="skills" className="border-t border-border/40 bg-muted/20 py-24">
         <Container>
           <SectionHeading
             eyebrow="Toolkit"
@@ -155,15 +152,15 @@ export default function AboutPage() {
           <div className="mt-12 grid gap-6 md:grid-cols-2">
             {skillCategories.map((category, index) => (
               <AnimatedReveal key={category.name} delay={index * 0.05}>
-                <div className="rounded-2xl border border-border bg-card p-6 shadow-sm">
-                  <h2 className="text-xl font-semibold">{category.name}</h2>
+                <div className="glass-card rounded-2xl p-6">
+                  <h2 className="text-xl font-bold text-gradient">{category.name}</h2>
                   <ul className="mt-5 space-y-4">
                     {category.skills.map((skill) => (
                       <li
                         key={skill.name}
                         className="flex items-center justify-between gap-4"
                       >
-                        <span className="text-sm font-medium">{skill.name}</span>
+                        <span className="text-sm font-semibold">{skill.name}</span>
                         <Proficiency level={skill.proficiency} />
                       </li>
                     ))}
@@ -175,7 +172,7 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      <section id="experience" className="border-t border-border px-6 py-24 lg:px-8">
+      <section id="experience" className="border-t border-border py-24">
         <Container>
           <SectionHeading
             eyebrow="Career"

@@ -12,7 +12,11 @@ interface GitHubContributionGraphProps {
 const dayLabels = ["Mon", "Wed", "Fri"];
 
 function formatMonthLabel(dateString: string): string {
-  return new Date(dateString).toLocaleDateString("en-AU", { month: "short" });
+  const parts = dateString.split("-");
+  if (parts.length < 2) return "";
+  const monthIndex = parseInt(parts[1], 10) - 1;
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  return months[monthIndex] || "";
 }
 
 export function GitHubContributionGraph({
@@ -152,10 +156,16 @@ function DayCell({
   );
 }
 
-function formatGitHubDate(date: string): string {
-  return new Date(date).toLocaleDateString("en-AU", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
+function formatGitHubDate(dateString: string): string {
+  const parts = dateString.split("-");
+  if (parts.length < 3) return dateString;
+  const year = parts[0];
+  const monthIndex = parseInt(parts[1], 10) - 1;
+  const day = parseInt(parts[2], 10).toString();
+  const months = [
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+  ];
+  const monthName = months[monthIndex] || "";
+  return `${day} ${monthName} ${year}`;
 }
