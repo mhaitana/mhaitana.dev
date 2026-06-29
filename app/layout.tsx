@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
+import { Archivo, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { Providers } from "@/components/providers";
 import { Navbar } from "@/components/navbar";
@@ -7,9 +7,15 @@ import { Footer } from "@/components/footer";
 import { SkipNav } from "@/components/skip-nav";
 import { Analytics } from "@vercel/analytics/react";
 
-const plusJakartaSans = Plus_Jakarta_Sans({
+const archivo = Archivo({
   subsets: ["latin"],
-  variable: "--font-plus-jakarta",
+  variable: "--font-archivo",
+  display: "swap",
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-space-grotesk",
   display: "swap",
 });
 
@@ -74,7 +80,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className={`h-full antialiased ${plusJakartaSans.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`h-full antialiased ${archivo.variable} ${spaceGrotesk.variable}`}>
       <body className="min-h-full flex flex-col bg-background text-foreground" suppressHydrationWarning>
         <Providers>
           <SkipNav />

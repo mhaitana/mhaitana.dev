@@ -8,9 +8,9 @@ interface StatCardProps {
 export function StatCard({ value, label }: StatCardProps) {
   return (
     <AnimatedReveal>
-      <div className="glass-card rounded-2xl p-6 text-center">
-        <p className="text-4xl font-extrabold tracking-tight text-gradient">{value}</p>
-        <p className="mt-2 text-sm font-medium text-muted-foreground">{label}</p>
+      <div className="h-full border-l border-border p-6 sm:p-8">
+        <p className="font-heading text-5xl font-bold tracking-[-0.07em] text-foreground sm:text-6xl">{value}</p>
+        <p className="mt-4 max-w-40 font-mono text-[0.7rem] font-semibold uppercase leading-relaxed tracking-[0.12em] text-muted-foreground">{label}</p>
       </div>
     </AnimatedReveal>
   );

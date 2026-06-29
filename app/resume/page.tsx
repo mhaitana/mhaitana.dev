@@ -16,10 +16,11 @@ export const metadata: Metadata = {
 export default function ResumePage() {
   return (
     <>
-      <section className="no-print pt-24 pb-8">
+      <section className="no-print border-b border-border py-12 sm:py-16">
         <Container className="flex flex-wrap items-center justify-between gap-4">
           <div>
-            <h1 className="text-3xl font-bold tracking-tight">Resume</h1>
+            <p className="eyebrow">Curriculum vitae</p>
+            <h1 className="mt-3 text-4xl font-bold tracking-[-0.05em] sm:text-5xl">Resume</h1>
             <p className="text-sm text-muted-foreground">
               Download or print a clean copy.
             </p>
@@ -39,8 +40,8 @@ export default function ResumePage() {
         </Container>
       </section>
 
-      <section className="pb-24 print:pb-0">
-        <Container className="max-w-3xl rounded-2xl border border-border bg-card p-5 sm:p-8 shadow-sm print:border-0 print:shadow-none print:p-0">
+      <section className="py-12 sm:py-20 print:pb-0">
+        <Container className="max-w-4xl border border-border bg-card p-5 shadow-[8px_8px_0_color-mix(in_srgb,var(--primary)_16%,transparent)] sm:p-10 print:border-0 print:shadow-none print:p-0">
           <header className="border-b border-border pb-6">
             <h2 className="text-3xl font-bold tracking-tight">Matt Haitana</h2>
             <p className="mt-1 text-lg text-muted-foreground">Senior Software Engineer</p>

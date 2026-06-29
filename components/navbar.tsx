@@ -9,10 +9,10 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/github", label: "GitHub" },
-  { href: "/contact", label: "Contact" },
+  { href: "/", label: "Index", index: "00" },
+  { href: "/about", label: "About", index: "01" },
+  { href: "/github", label: "Worklog", index: "02" },
+  { href: "/contact", label: "Contact", index: "03" },
 ];
 
 export function Navbar() {
@@ -30,10 +30,11 @@ export function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-border/40 bg-background/70 backdrop-blur-md">
-      <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:px-8" aria-label="Main navigation">
-        <Link href="/" className="text-lg font-bold tracking-tight text-foreground transition-opacity hover:opacity-80">
-          Matt Haitana
+    <header className="sticky top-0 z-40 w-full border-b border-border bg-background/90 backdrop-blur-xl">
+      <nav className="mx-auto flex h-[4.5rem] max-w-7xl items-center justify-between px-5 sm:px-8 lg:px-12" aria-label="Main navigation">
+        <Link href="/" className="group flex min-h-11 items-center gap-3 text-foreground">
+          <span className="flex size-8 items-center justify-center bg-foreground font-heading text-xs font-bold text-background transition-colors group-hover:bg-primary group-hover:text-primary-foreground">MH</span>
+          <span className="hidden font-mono text-[0.68rem] font-semibold uppercase leading-tight tracking-[0.12em] sm:block">Matt Haitana<br /><span className="text-muted-foreground">Software Engineer</span></span>
         </Link>
 
         <div className="hidden items-center gap-1 md:flex">
@@ -42,14 +43,14 @@ export function Navbar() {
               key={link.href}
               href={link.href}
               className={cn(
-                "rounded-md px-3 py-1.5 text-sm font-medium transition-all duration-200",
+                "group flex min-h-11 items-center gap-2 border-l border-border px-4 font-mono text-xs font-semibold uppercase tracking-wider transition-colors duration-200",
                 pathname === link.href
-                  ? "bg-primary/10 text-primary font-semibold"
-                  : "text-muted-foreground hover:bg-muted/65 hover:text-foreground"
+                  ? "bg-foreground text-background"
+                  : "text-muted-foreground hover:bg-muted hover:text-foreground"
               )}
               aria-current={pathname === link.href ? "page" : undefined}
             >
-              {link.label}
+              <span className="text-[0.6rem] opacity-60">{link.index}</span>{link.label}
             </Link>
           ))}
         </div>
@@ -59,8 +60,8 @@ export function Navbar() {
             variant="ghost"
             size="icon"
             onClick={toggleTheme}
-            aria-label="Toggle theme"
-            className="hidden md:flex"
+            aria-label="Toggle color theme"
+            className="hidden border-l border-border md:flex"
           >
             {mounted ? (
               resolvedTheme === "dark" ? (
@@ -94,7 +95,7 @@ export function Navbar() {
       {mobileOpen && (
         <div
           id="mobile-menu"
-          className="border-t border-border bg-background px-6 pb-4 md:hidden"
+          className="border-t border-border bg-background px-5 pb-5 md:hidden"
         >
           <div className="flex flex-col gap-1 pt-2">
             {navLinks.map((link) => (
@@ -103,19 +104,19 @@ export function Navbar() {
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
                 className={cn(
-                  "rounded-md px-3 py-2.5 text-sm font-medium transition-all duration-200",
+                  "flex min-h-12 items-center justify-between border-b border-border px-3 font-mono text-xs font-semibold uppercase tracking-wider transition-colors duration-200",
                   pathname === link.href
-                    ? "bg-primary/10 text-primary font-semibold"
-                    : "text-muted-foreground hover:bg-muted/65 hover:text-foreground"
+                    ? "bg-foreground text-background"
+                    : "text-muted-foreground hover:bg-muted hover:text-foreground"
                 )}
                 aria-current={pathname === link.href ? "page" : undefined}
               >
-                {link.label}
+                {link.label}<span className="text-[0.65rem] opacity-60">{link.index}</span>
               </Link>
             ))}
             <button
               onClick={toggleTheme}
-              className="flex items-center gap-2 rounded-md px-3 py-3 text-sm font-medium text-muted-foreground hover:bg-muted hover:text-foreground"
+              className="flex min-h-12 cursor-pointer items-center gap-2 px-3 font-mono text-xs font-semibold uppercase tracking-wider text-muted-foreground hover:bg-muted hover:text-foreground"
             >
               {mounted && resolvedTheme === "dark" ? (
                 <>

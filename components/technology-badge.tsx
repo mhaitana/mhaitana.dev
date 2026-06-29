@@ -10,7 +10,7 @@ export function TechnologyBadge({
   return (
     <span
       className={cn(
-        "inline-flex items-center rounded-full border border-primary/10 bg-primary/5 px-2.5 py-0.5 text-xs font-semibold text-primary/80 transition-all duration-200 hover:bg-primary/10 hover:border-primary/20",
+        "inline-flex items-center rounded-sm border border-border bg-background px-2.5 py-1 font-mono text-[0.68rem] font-semibold uppercase tracking-wide text-muted-foreground transition-colors duration-200 hover:border-primary hover:text-primary",
         className
       )}
     >

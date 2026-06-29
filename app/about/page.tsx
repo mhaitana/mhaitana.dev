@@ -34,25 +34,22 @@ function Proficiency({ level }: { level: number }) {
 export default function AboutPage() {
   return (
     <>
-      <section className="relative overflow-hidden pt-24 pb-16">
-        <div className="mesh-glow-container" aria-hidden="true">
-          <div className="mesh-glow-1 animate-pulse" style={{ animationDuration: '8s' }} />
-        </div>
+      <section className="page-header" data-index="01">
         <Container className="relative z-10">
           <AnimatedReveal>
-            <p className="text-sm font-semibold uppercase tracking-wider text-primary">
+            <p className="eyebrow">
               About
             </p>
           </AnimatedReveal>
           <AnimatedReveal delay={0.05}>
-            <h1 className="mt-4 text-4xl font-bold tracking-tight sm:text-5xl">
+            <h1 className="mt-7 max-w-5xl text-6xl font-bold leading-[0.9] tracking-[-0.07em] sm:text-8xl lg:text-9xl">
               <span className="text-gradient">Engineering with purpose</span>
             </h1>
           </AnimatedReveal>
         </Container>
       </section>
 
-      <section className="pb-24">
+      <section className="py-20 sm:py-28">
         <Container className="grid gap-12 lg:grid-cols-[1fr_320px]">
           <div className="space-y-12 min-w-0">
             <AnimatedReveal>
@@ -83,7 +80,7 @@ export default function AboutPage() {
                   ].map((value) => (
                     <li
                       key={value}
-                      className="glass-card rounded-xl p-4 text-sm font-semibold text-foreground shadow-sm hover:scale-[1.02]"
+                    className="glass-card rounded-sm p-4 text-sm font-semibold text-foreground"
                     >
                       {value}
                     </li>
@@ -104,8 +101,8 @@ export default function AboutPage() {
 
           <aside className="space-y-6">
             <AnimatedReveal>
-              <div className="glass-card rounded-2xl p-6">
-                <h2 className="text-lg font-bold text-gradient">Quick facts</h2>
+              <div className="glass-card rounded-sm p-6">
+                <h2 className="text-lg font-bold">Quick facts</h2>
                 <dl className="mt-4 space-y-4">
                   <div>
                     <dt className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Location</dt>
@@ -128,8 +125,8 @@ export default function AboutPage() {
             </AnimatedReveal>
 
             <AnimatedReveal delay={0.1}>
-              <div className="glass-card rounded-2xl p-6">
-                <h2 className="text-lg font-bold text-gradient">Core values</h2>
+              <div className="glass-card rounded-sm p-6">
+                <h2 className="text-lg font-bold">Core values</h2>
                 <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
                   <li><strong className="text-foreground">Ownership:</strong> End-to-end accountability for outcomes.</li>
                   <li><strong className="text-foreground">Clarity:</strong> Simple solutions beat clever ones.</li>
@@ -142,7 +139,7 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      <section id="skills" className="border-t border-border/40 bg-muted/20 py-24">
+      <section id="skills" className="scroll-mt-24 border-t border-border bg-card/70 py-20 sm:py-28">
         <Container>
           <SectionHeading
             eyebrow="Toolkit"
@@ -151,16 +148,16 @@ export default function AboutPage() {
           />
           <div className="mt-12 grid gap-6 md:grid-cols-2">
             {skillCategories.map((category, index) => (
-              <AnimatedReveal key={category.name} delay={index * 0.05}>
-                <div className="glass-card rounded-2xl p-6">
-                  <h2 className="text-xl font-bold text-gradient">{category.name}</h2>
+              <AnimatedReveal key={category.name} delay={index * 0.05} className="min-w-0">
+                <div className="glass-card rounded-sm p-6">
+                  <h2 className="text-xl font-bold">{category.name}</h2>
                   <ul className="mt-5 space-y-4">
                     {category.skills.map((skill) => (
                       <li
                         key={skill.name}
                         className="flex items-center justify-between gap-4"
                       >
-                        <span className="text-sm font-semibold">{skill.name}</span>
+                        <span className="min-w-0 text-sm font-semibold">{skill.name}</span>
                         <Proficiency level={skill.proficiency} />
                       </li>
                     ))}
@@ -172,7 +169,7 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      <section id="experience" className="border-t border-border py-24">
+      <section id="experience" className="scroll-mt-24 border-t border-border py-20 sm:py-28">
         <Container>
           <SectionHeading
             eyebrow="Career"

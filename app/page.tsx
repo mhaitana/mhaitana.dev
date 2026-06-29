@@ -1,4 +1,15 @@
-import { Github, Linkedin, Mail, MapPin, ArrowRight, Download } from "lucide-react";
+import {
+  ArrowDownRight,
+  ArrowRight,
+  Braces,
+  Cpu,
+  Download,
+  Github,
+  Layers3,
+  Linkedin,
+  Mail,
+  MapPin,
+} from "lucide-react";
 import { Container } from "@/components/container";
 import { SectionHeading } from "@/components/section-heading";
 import { AnimatedReveal } from "@/components/animated-reveal";
@@ -9,179 +20,181 @@ import { GitHubContributionGraph } from "@/components/github-contribution-graph"
 import { experiences } from "@/lib/data";
 import { getGitHubData } from "@/lib/github";
 
+const focusAreas = [
+  {
+    index: "01",
+    icon: Layers3,
+    title: "Product platforms",
+    body: "Composable frontends, design systems, and type-safe GraphQL layers built for teams—not just demos.",
+    tags: ["React", "Next.js", "GraphQL"],
+  },
+  {
+    index: "02",
+    icon: Cpu,
+    title: "Local-first AI",
+    body: "Practical model gateways, context engines, and developer tools that keep latency, privacy, and cost in view.",
+    tags: ["Rust", "Python", "MCP"],
+  },
+  {
+    index: "03",
+    icon: Braces,
+    title: "Systems that ship",
+    body: "Observable services and CI/CD pipelines designed to make reliable delivery the default behaviour.",
+    tags: ["AWS", "Docker", "TypeScript"],
+  },
+];
+
 export default async function HomePage() {
   const { contributionCalendar, languageStats } = await getGitHubData();
-  const totalYears = "10+";
 
   return (
     <>
       <StructuredData />
-      <section className="relative overflow-hidden border-b border-border/40 bg-background pt-32 pb-24">
-        <div className="mesh-glow-container" aria-hidden="true">
-          <div className="mesh-glow-1" />
-          <div className="mesh-glow-2" />
-        </div>
-        <Container className="relative z-10">
-          <div className="max-w-5xl">
-            <AnimatedReveal>
-              <p className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
-                Senior Software Engineer
-              </p>
-            </AnimatedReveal>
 
-            <AnimatedReveal delay={0.05}>
-              <h1 className="mt-6 text-5xl font-bold tracking-tight sm:text-6xl lg:text-7xl">
-                <span className="text-gradient">Matt Haitana</span>
-              </h1>
-            </AnimatedReveal>
+      <section className="relative overflow-hidden border-b border-border">
+        <Container className="relative py-16 sm:py-24 lg:py-28">
+          <AnimatedReveal>
+            <div className="mb-12 flex flex-wrap items-center justify-between gap-4 border-b border-border pb-5">
+              <p className="eyebrow">Senior Software Engineer</p>
+              <p className="flex items-center gap-2 font-mono text-[0.68rem] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
+                <span className="size-2 bg-emerald-500" aria-hidden="true" />
+                Building from Melbourne · AEST
+              </p>
+            </div>
+          </AnimatedReveal>
+
+          <div className="grid gap-12 lg:grid-cols-[minmax(0,1.45fr)_minmax(18rem,0.55fr)] lg:items-end">
+            <div>
+              <AnimatedReveal delay={0.04}>
+                <h1 className="display-type">
+                  <span className="block">MATT</span>
+                  <span className="block text-primary">HAITANA</span>
+                </h1>
+              </AnimatedReveal>
+            </div>
 
             <AnimatedReveal delay={0.1}>
-              <p className="mt-6 text-xl leading-relaxed text-muted-foreground sm:text-2xl pe-0 sm:pe-12">
-                I design and build high-performance web systems, APIs, and accessible interfaces that scale.
-                Currently engineering premium real estate platforms at{" "}
-                <strong className="text-foreground">CoStar Group</strong>, with a focus on local-first AI systems, developer tooling, and composable design systems.
-              </p>
-            </AnimatedReveal>
-
-            <AnimatedReveal delay={0.15}>
-              <div className="mt-8 flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
-                <span className="inline-flex items-center gap-1.5">
-                  <MapPin className="h-4 w-4" aria-hidden="true" />
-                  Melbourne, Australia
-                </span>
+              <div className="border-l-2 border-primary pl-6 lg:mb-1">
+                <p className="text-xl font-medium leading-snug tracking-[-0.025em] sm:text-2xl">
+                  I turn complex systems into clear, durable products.
+                </p>
+                <p className="mt-5 leading-relaxed text-muted-foreground">
+                  High-performance web platforms, APIs, local-first AI tools, and accessible interfaces built to scale with the people behind them.
+                </p>
+                <div className="mt-7 flex flex-wrap gap-3">
+                  <LinkButton href="/contact" size="lg">
+                    Start a conversation <ArrowRight aria-hidden="true" />
+                  </LinkButton>
+                  <LinkButton href="/resume" variant="outline" size="lg">
+                    <Download aria-hidden="true" /> Resume
+                  </LinkButton>
+                </div>
               </div>
             </AnimatedReveal>
+          </div>
 
-            <AnimatedReveal delay={0.2}>
-              <div className="mt-10 flex flex-wrap items-center gap-3">
-                <LinkButton href="/contact" size="lg" className="gap-2">
-                  Get in touch
-                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                </LinkButton>
-                <LinkButton href="/resume" variant="outline" size="lg" className="gap-2">
-                  <Download className="h-4 w-4" aria-hidden="true" />
-                  Resume
-                </LinkButton>
+          <AnimatedReveal delay={0.15}>
+            <div className="mt-14 flex flex-wrap items-center justify-between gap-6 border-t border-border pt-5">
+              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                <MapPin className="size-4 text-primary" aria-hidden="true" /> Melbourne, Australia
               </div>
-            </AnimatedReveal>
+              <div className="flex items-center gap-2">
+                {[
+                  { href: "https://github.com/mhaitana", label: "GitHub", icon: Github },
+                  { href: "https://www.linkedin.com/in/mhaitana", label: "LinkedIn", icon: Linkedin },
+                  { href: "mailto:mhaitana@gmail.com", label: "Email", icon: Mail },
+                ].map((item) => (
+                  <a key={item.label} href={item.href} target={item.href.startsWith("http") ? "_blank" : undefined} rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined} className="flex size-11 items-center justify-center border border-border bg-background text-muted-foreground transition-colors hover:border-primary hover:bg-primary hover:text-primary-foreground" aria-label={item.label}>
+                    <item.icon className="size-4" aria-hidden="true" />
+                  </a>
+                ))}
+              </div>
+            </div>
+          </AnimatedReveal>
+        </Container>
+      </section>
 
-            <AnimatedReveal delay={0.25}>
-              <div className="mt-12 flex items-center gap-4">
-                <a
-                  href="https://github.com/mhaitana"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="rounded-full border border-border p-2.5 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
-                  aria-label="GitHub"
-                >
-                  <Github className="h-5 w-5" aria-hidden="true" />
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/mhaitana"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="rounded-full border border-border p-2.5 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
-                  aria-label="LinkedIn"
-                >
-                  <Linkedin className="h-5 w-5" aria-hidden="true" />
-                </a>
-                <a
-                  href="mailto:mhaitana@gmail.com"
-                  className="rounded-full border border-border p-2.5 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
-                  aria-label="Email"
-                >
-                  <Mail className="h-5 w-5" aria-hidden="true" />
-                </a>
-              </div>
-            </AnimatedReveal>
+      <section className="border-b border-border bg-card/60">
+        <Container className="grid p-0 sm:grid-cols-3 sm:px-8 lg:px-12">
+          <StatCard value="10+" label="Years shipping production software" />
+          <StatCard value="30+" label="Design-system packages delivered" />
+          <StatCard value="80%+" label="Coverage gates established" />
+        </Container>
+      </section>
+
+      <section className="py-20 sm:py-28">
+        <Container>
+          <div className="grid gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:gap-16">
+            <div>
+              <SectionHeading eyebrow="What I build" title="Depth where it matters." description="A product engineer’s eye, backed by platform thinking and the operational discipline to carry work into production." />
+              <ArrowDownRight className="mt-10 hidden size-12 text-primary lg:block" aria-hidden="true" />
+            </div>
+            <div className="border-t border-border">
+              {focusAreas.map((area, index) => (
+                <AnimatedReveal key={area.title} delay={index * 0.05}>
+                  <article className="group grid gap-5 border-b border-border py-7 sm:grid-cols-[3rem_1fr_auto] sm:items-start sm:py-9">
+                    <span className="font-mono text-xs font-bold text-primary">{area.index}</span>
+                    <div>
+                      <div className="flex items-center gap-3">
+                        <area.icon className="size-5 text-primary" strokeWidth={1.7} aria-hidden="true" />
+                        <h3 className="text-2xl font-bold tracking-[-0.04em] sm:text-3xl">{area.title}</h3>
+                      </div>
+                      <p className="mt-3 max-w-xl leading-relaxed text-muted-foreground">{area.body}</p>
+                    </div>
+                    <div className="flex flex-wrap gap-1.5 sm:max-w-28 sm:justify-end">
+                      {area.tags.map((tag) => <span key={tag} className="border border-border px-2 py-1 font-mono text-[0.6rem] uppercase tracking-wider text-muted-foreground">{tag}</span>)}
+                    </div>
+                  </article>
+                </AnimatedReveal>
+              ))}
+            </div>
           </div>
         </Container>
       </section>
 
-      <section className="py-24">
+      <section className="border-y border-border bg-foreground py-20 text-background sm:py-28">
         <Container>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            <StatCard value={totalYears} label="Years shipping software" />
-            <StatCard value="6" label="Companies & organisations" />
-            <StatCard value="100%" label="Accessibility target" />
+          <div className="flex flex-col justify-between gap-8 sm:flex-row sm:items-end">
+            <SectionHeading className="[&_h2]:text-background [&_p]:text-background/55" eyebrow="Selected experience" title="A decade of useful work." description="Across property technology, real-time systems, product platforms, and defence." />
+            <LinkButton href="/about#experience" variant="outline" className="border-background/30 bg-transparent text-background hover:bg-background hover:text-foreground">Full timeline <ArrowRight aria-hidden="true" /></LinkButton>
           </div>
-        </Container>
-      </section>
-
-      <section className="border-y border-border/40 bg-muted/20 py-24">
-        <Container>
-          <SectionHeading
-            eyebrow="Experience"
-            title="Where I have worked"
-            description="From real-time property platforms to defence systems, a career focused on impact."
-          />
-
-          <div className="mt-12 grid gap-6 md:grid-cols-2">
-            {experiences.slice(0, 4).map((exp) => (
-              <AnimatedReveal key={exp.company}>
-                <div className="glass-card rounded-2xl p-6">
-                  <h3 className="text-lg font-bold">{exp.company}</h3>
-                  <p className="text-sm text-muted-foreground">{exp.title}</p>
-                  <p className="mt-3 text-xs font-semibold text-primary/80">{exp.period}</p>
+          <div className="mt-12 border-t border-background/20">
+            {experiences.slice(0, 4).map((exp, index) => (
+              <AnimatedReveal key={exp.company + exp.period} delay={index * 0.04}>
+                <div className="grid gap-2 border-b border-background/20 py-6 sm:grid-cols-[3rem_1fr_1fr_auto] sm:items-center">
+                  <span className="font-mono text-xs text-primary">0{index + 1}</span>
+                  <h3 className="text-xl font-bold tracking-tight">{exp.company}</h3>
+                  <p className="text-sm text-background/55">{exp.title}</p>
+                  <p className="font-mono text-[0.65rem] uppercase tracking-wider text-background/45">{exp.period}</p>
                 </div>
               </AnimatedReveal>
             ))}
-          </div>
-
-          <div className="mt-10">
-            <LinkButton href="/about#experience" variant="outline" className="gap-2">
-              Full timeline
-              <ArrowRight className="h-4 w-4" aria-hidden="true" />
-            </LinkButton>
           </div>
         </Container>
       </section>
 
       {contributionCalendar && (
-        <section className="py-24">
+        <section className="py-20 sm:py-28">
           <Container>
-            <div className="flex items-end justify-between">
-              <SectionHeading
-                eyebrow="Open Source"
-                title="GitHub Activity"
-                description="A year of contributions, side projects, and experimentation."
-              />
-              <LinkButton href="/github" variant="outline" className="hidden gap-2 sm:inline-flex">
-                View GitHub Profile
-                <ArrowRight className="h-4 w-4" aria-hidden="true" />
-              </LinkButton>
+            <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
+              <SectionHeading eyebrow="Public worklog" title="Still making things." description="A live-ish trace of open-source contributions, experiments, and side projects." />
+              <LinkButton href="/github" variant="outline">Explore worklog <ArrowRight aria-hidden="true" /></LinkButton>
             </div>
-            
-            <div className="mt-8 flex flex-col lg:flex-row lg:items-stretch gap-6 items-start">
-              <AnimatedReveal className="w-full lg:w-fit max-w-full">
-                <div className="glass-card h-full w-full overflow-x-auto rounded-2xl p-6 flex flex-col justify-center">
-                  <GitHubContributionGraph calendar={contributionCalendar} />
-                </div>
-              </AnimatedReveal>
-
-              {languageStats && languageStats.length > 0 && (
-                <AnimatedReveal delay={0.1} className="w-full lg:flex-1">
-                  <div className="glass-card h-full rounded-2xl p-6">
-                    <h2 className="text-lg font-bold">Top Languages</h2>
-                    <div className="mt-5 space-y-4">
-                      {languageStats.slice(0, 3).map((lang) => (
-                        <div key={lang.name}>
-                          <div className="flex items-center justify-between text-sm">
-                            <span className="font-semibold">{lang.name}</span>
-                            <span className="text-muted-foreground">{lang.percentage}%</span>
-                          </div>
-                          <div className="mt-2 h-2 w-full overflow-hidden rounded-full bg-muted/60">
-                            <div
-                              className="h-full rounded-full bg-primary"
-                              style={{ width: `${lang.percentage}%` }}
-                            />
-                          </div>
-                        </div>
-                      ))}
+            <div className="mt-10 grid gap-px bg-border border border-border lg:grid-cols-[1fr_20rem]">
+              <div className="min-w-0 overflow-x-auto bg-card p-5 sm:p-8">
+                <GitHubContributionGraph calendar={contributionCalendar} />
+              </div>
+              <div className="bg-card p-6 sm:p-8">
+                <p className="font-mono text-xs font-bold uppercase tracking-wider text-primary">Language mix</p>
+                <div className="mt-6 space-y-5">
+                  {languageStats.slice(0, 4).map((lang) => (
+                    <div key={lang.name}>
+                      <div className="flex justify-between text-sm"><span className="font-semibold">{lang.name}</span><span className="font-mono text-xs text-muted-foreground">{lang.percentage}%</span></div>
+                      <div className="mt-2 h-1 bg-muted"><div className="h-full bg-primary" style={{ width: `${lang.percentage}%` }} /></div>
                     </div>
-                  </div>
-                </AnimatedReveal>
-              )}
+                  ))}
+                </div>
+              </div>
             </div>
           </Container>
         </section>

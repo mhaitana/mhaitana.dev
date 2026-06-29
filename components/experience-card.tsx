@@ -17,12 +17,12 @@ export function ExperienceCard({ experience, index }: ExperienceCardProps) {
 
   return (
     <AnimatedReveal delay={index * 0.05}>
-      <article className="relative pl-8 sm:pl-10">
-        <span className="absolute left-0 top-1 flex h-6 w-6 items-center justify-center rounded-full border border-primary/30 bg-background text-primary shadow-sm shadow-primary/10 sm:h-7 sm:w-7">
-          <span className="h-2 w-2 rounded-full bg-primary" />
+      <article className="relative pl-8 sm:pl-12">
+        <span className="absolute left-0 top-1 flex h-6 w-6 items-center justify-center border border-primary bg-background text-primary sm:h-7 sm:w-7">
+          <span className="h-1.5 w-1.5 bg-primary" />
         </span>
 
-        <div className="glass-card rounded-2xl p-5 sm:p-6">
+        <div className="glass-card rounded-sm p-5 sm:p-7">
           <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between">
             <div>
               <h3 className="text-lg font-semibold text-foreground">
@@ -56,7 +56,7 @@ export function ExperienceCard({ experience, index }: ExperienceCardProps) {
 
           <button
             onClick={() => setExpanded((e) => !e)}
-            className="mt-4 flex items-center gap-1 text-sm font-medium text-primary transition-colors hover:text-primary/80"
+            className="mt-5 flex min-h-11 cursor-pointer items-center gap-1 font-mono text-xs font-semibold uppercase tracking-wider text-primary transition-colors hover:text-foreground"
             aria-expanded={expanded}
             aria-controls={`exp-${index}`}
           >

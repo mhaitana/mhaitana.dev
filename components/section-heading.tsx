@@ -14,17 +14,17 @@ export function SectionHeading({
   className,
 }: SectionHeadingProps) {
   return (
-    <div className={cn("max-w-2xl", className)}>
+    <div className={cn("max-w-3xl", className)}>
       {eyebrow && (
-        <p className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
+        <p className="eyebrow">
           {eyebrow}
         </p>
       )}
-      <h2 className="mt-3 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+      <h2 className="mt-5 text-4xl font-bold leading-[0.98] tracking-[-0.05em] text-foreground sm:text-5xl lg:text-6xl">
         {title}
       </h2>
       {description && (
-        <p className="mt-4 text-lg text-muted-foreground">{description}</p>
+        <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">{description}</p>
       )}
     </div>
   );
