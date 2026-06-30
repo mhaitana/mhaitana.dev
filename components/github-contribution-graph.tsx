@@ -98,10 +98,10 @@ export function GitHubContributionGraph({
                 className={cn(
                   "h-3 w-3 rounded-sm",
                   level === 0 && "bg-muted",
-                  level === 1 && "bg-emerald-200 dark:bg-emerald-900",
-                  level === 2 && "bg-emerald-300 dark:bg-emerald-700",
-                  level === 3 && "bg-emerald-400 dark:bg-emerald-500",
-                  level === 4 && "bg-emerald-500 dark:bg-emerald-300"
+                  level === 1 && "bg-primary/20 dark:bg-primary/10",
+                  level === 2 && "bg-primary/45 dark:bg-primary/30",
+                  level === 3 && "bg-primary/70 dark:bg-primary/60",
+                  level === 4 && "bg-primary"
                 )}
               />
             ))}
@@ -138,10 +138,10 @@ function DayCell({
         className={cn(
           "h-3 w-3 rounded-sm transition-colors",
           level === 0 && "bg-muted",
-          level === 1 && "bg-emerald-200 dark:bg-emerald-900",
-          level === 2 && "bg-emerald-300 dark:bg-emerald-700",
-          level === 3 && "bg-emerald-400 dark:bg-emerald-500",
-          level === 4 && "bg-emerald-500 dark:bg-emerald-300"
+          level === 1 && "bg-primary/20 dark:bg-primary/10",
+          level === 2 && "bg-primary/45 dark:bg-primary/30",
+          level === 3 && "bg-primary/70 dark:bg-primary/60",
+          level === 4 && "bg-primary"
         )}
       />
 
