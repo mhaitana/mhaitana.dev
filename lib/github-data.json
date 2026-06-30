@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-30T12:37:26.470Z",
+  "fetched_at": "2026-06-30T12:47:52.521Z",
   "username": "mhaitana",
   "authenticated": true,
   "profile": {
@@ -19,6 +19,58 @@
     "updated_at": "2026-06-27T14:59:44Z"
   },
   "repos": [
+    {
+      "id": 1282227497,
+      "name": "mhaitana.dev",
+      "full_name": "mhaitana/mhaitana.dev",
+      "html_url": "https://github.com/mhaitana/mhaitana.dev",
+      "description": "A theme-aware personal website and GitHub dashboard. Features a fluid, mobile-optimized design, dynamic contribution graph, and interactive timeline. Built with Next.js 15, Tailwind v4, and Archivo/Space Grotesk typography.",
+      "fork": false,
+      "created_at": "2026-06-27T13:46:14Z",
+      "updated_at": "2026-06-30T12:43:26Z",
+      "pushed_at": "2026-06-30T12:40:29Z",
+      "size": 291,
+      "stargazers_count": 0,
+      "watchers_count": 0,
+      "forks_count": 0,
+      "open_issues_count": 0,
+      "language": "TypeScript",
+      "languages": {
+        "TypeScript": 105858,
+        "JavaScript": 20038,
+        "CSS": 6641
+      },
+      "topics": [
+        "framer-motion",
+        "github-api",
+        "nextjs",
+        "portfolio",
+        "react",
+        "tailwindcss",
+        "typescript"
+      ],
+      "homepage": "https://mhaitana.dev",
+      "detectedTechnologies": [
+        "react",
+        "analytics",
+        "class-variance-authority",
+        "clsx",
+        "framer-motion",
+        "lucide-react",
+        "nextjs",
+        "next-themes",
+        "shadcn",
+        "tailwind-merge",
+        "tw-animate-css",
+        "eslintrc",
+        "postcss",
+        "nodejs",
+        "eslint",
+        "eslint-config-next",
+        "tailwindcss",
+        "typescript"
+      ]
+    },
     {
       "id": 1280967831,
       "name": "headroom",
@@ -100,58 +152,6 @@
       ]
     },
     {
-      "id": 1282227497,
-      "name": "mhaitana.dev",
-      "full_name": "mhaitana/mhaitana.dev",
-      "html_url": "https://github.com/mhaitana/mhaitana.dev",
-      "description": "Minimalist portfolio featuring an integrated GitHub activity dashboard, career timeline, and skills breakdown. Built with Next.js 15, Tailwind v4, and Framer Motion.",
-      "fork": false,
-      "created_at": "2026-06-27T13:46:14Z",
-      "updated_at": "2026-06-29T14:52:07Z",
-      "pushed_at": "2026-06-29T14:51:32Z",
-      "size": 291,
-      "stargazers_count": 0,
-      "watchers_count": 0,
-      "forks_count": 0,
-      "open_issues_count": 0,
-      "language": "TypeScript",
-      "languages": {
-        "TypeScript": 105918,
-        "JavaScript": 20038,
-        "CSS": 6641
-      },
-      "topics": [
-        "framer-motion",
-        "github-api",
-        "nextjs",
-        "portfolio",
-        "react",
-        "tailwindcss",
-        "typescript"
-      ],
-      "homepage": "https://mhaitana.dev",
-      "detectedTechnologies": [
-        "react",
-        "analytics",
-        "class-variance-authority",
-        "clsx",
-        "framer-motion",
-        "lucide-react",
-        "nextjs",
-        "next-themes",
-        "shadcn",
-        "tailwind-merge",
-        "tw-animate-css",
-        "eslintrc",
-        "postcss",
-        "nodejs",
-        "eslint",
-        "eslint-config-next",
-        "tailwindcss",
-        "typescript"
-      ]
-    },
-    {
       "id": 1270191512,
       "name": "docker-llm-stack",
       "full_name": "mhaitana/docker-llm-stack",
@@ -180,6 +180,24 @@
     }
   ],
   "events": [
+    {
+      "id": "14110200218",
+      "type": "PushEvent",
+      "public": true,
+      "created_at": "2026-06-30T12:40:30Z",
+      "actor": {
+        "login": "mhaitana",
+        "avatar_url": "https://avatars.githubusercontent.com/u/107464365?"
+      },
+      "repo": {
+        "id": 1282227497,
+        "name": "mhaitana/mhaitana.dev",
+        "url": "https://api.github.com/repos/mhaitana/mhaitana.dev"
+      },
+      "payload": {
+        "ref": "refs/heads/main"
+      }
+    },
     {
       "id": "14097641105",
       "type": "PushEvent",
@@ -650,30 +668,12 @@
       "payload": {
         "ref": "refs/heads/main"
       }
-    },
-    {
-      "id": "13408851782",
-      "type": "PushEvent",
-      "public": true,
-      "created_at": "2026-06-16T13:18:55Z",
-      "actor": {
-        "login": "mhaitana",
-        "avatar_url": "https://avatars.githubusercontent.com/u/107464365?"
-      },
-      "repo": {
-        "id": 1270191512,
-        "name": "mhaitana/docker-llm-stack",
-        "url": "https://api.github.com/repos/mhaitana/docker-llm-stack"
-      },
-      "payload": {
-        "ref": "refs/heads/main"
-      }
     }
   ],
   "languageStats": [
     {
       "name": "TypeScript",
-      "bytes": 15747219,
+      "bytes": 15747159,
       "percentage": 48.4
     },
     {
