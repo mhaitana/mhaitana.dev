@@ -18,7 +18,7 @@ const contactLinks = [
 export default function ContactPage() {
   return (
     <>
-      <section className="page-header" data-index="03">
+      <section className="page-header" data-index="04">
         <Container className="relative z-10">
           <p className="eyebrow">Contact</p>
           <h1 className="mt-7 max-w-5xl text-6xl font-bold leading-[0.88] tracking-[-0.07em] sm:text-8xl lg:text-9xl">Let&apos;s make the complex clear.</h1>

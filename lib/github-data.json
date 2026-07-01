@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-30T12:47:52.521Z",
+  "fetched_at": "2026-07-01T19:48:59.422Z",
   "username": "mhaitana",
   "authenticated": true,
   "profile": {
@@ -27,9 +27,9 @@
       "description": "A theme-aware personal website and GitHub dashboard. Features a fluid, mobile-optimized design, dynamic contribution graph, and interactive timeline. Built with Next.js 15, Tailwind v4, and Archivo/Space Grotesk typography.",
       "fork": false,
       "created_at": "2026-06-27T13:46:14Z",
-      "updated_at": "2026-06-30T12:43:26Z",
-      "pushed_at": "2026-06-30T12:40:29Z",
-      "size": 291,
+      "updated_at": "2026-06-30T13:16:08Z",
+      "pushed_at": "2026-06-30T13:15:34Z",
+      "size": 307,
       "stargazers_count": 0,
       "watchers_count": 0,
       "forks_count": 0,
@@ -180,6 +180,24 @@
     }
   ],
   "events": [
+    {
+      "id": "14112028845",
+      "type": "PushEvent",
+      "public": true,
+      "created_at": "2026-06-30T13:15:35Z",
+      "actor": {
+        "login": "mhaitana",
+        "avatar_url": "https://avatars.githubusercontent.com/u/107464365?"
+      },
+      "repo": {
+        "id": 1282227497,
+        "name": "mhaitana/mhaitana.dev",
+        "url": "https://api.github.com/repos/mhaitana/mhaitana.dev"
+      },
+      "payload": {
+        "ref": "refs/heads/main"
+      }
+    },
     {
       "id": "14110200218",
       "type": "PushEvent",
@@ -650,36 +668,18 @@
       "payload": {
         "ref": "refs/heads/main"
       }
-    },
-    {
-      "id": "13409529483",
-      "type": "PushEvent",
-      "public": true,
-      "created_at": "2026-06-16T13:31:56Z",
-      "actor": {
-        "login": "mhaitana",
-        "avatar_url": "https://avatars.githubusercontent.com/u/107464365?"
-      },
-      "repo": {
-        "id": 1270191512,
-        "name": "mhaitana/docker-llm-stack",
-        "url": "https://api.github.com/repos/mhaitana/docker-llm-stack"
-      },
-      "payload": {
-        "ref": "refs/heads/main"
-      }
     }
   ],
   "languageStats": [
     {
       "name": "TypeScript",
-      "bytes": 15747159,
-      "percentage": 48.4
+      "bytes": 15888478,
+      "percentage": 48.6
     },
     {
       "name": "Python",
       "bytes": 13257890,
-      "percentage": 40.7
+      "percentage": 40.5
     },
     {
       "name": "Rust",
@@ -688,7 +688,7 @@
     },
     {
       "name": "JavaScript",
-      "bytes": 278761,
+      "bytes": 284260,
       "percentage": 0.9
     },
     {
@@ -708,7 +708,7 @@
     },
     {
       "name": "CSS",
-      "bytes": 84431,
+      "bytes": 85184,
       "percentage": 0.3
     },
     {
@@ -823,7 +823,7 @@
     ]
   },
   "contributionCalendar": {
-    "totalContributions": 1128,
+    "totalContributions": 1138,
     "weeks": [
       {
         "contributionDays": [
@@ -2867,7 +2867,17 @@
           },
           {
             "date": "2026-06-30",
+            "contributionCount": 8,
+            "color": "#40c463"
+          },
+          {
+            "date": "2026-07-01",
             "contributionCount": 6,
+            "color": "#9be9a8"
+          },
+          {
+            "date": "2026-07-02",
+            "contributionCount": 2,
             "color": "#9be9a8"
           }
         ]

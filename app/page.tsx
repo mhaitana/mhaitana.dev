@@ -19,6 +19,7 @@ import { StructuredData } from "@/components/structured-data";
 import { GitHubContributionGraph } from "@/components/github-contribution-graph";
 import { experiences } from "@/lib/data";
 import { getGitHubData } from "@/lib/github";
+import { labProjects, labStatusMeta, HAITECH_LABS_URL } from "@/lib/labs";
 
 const focusAreas = [
   {
@@ -199,6 +200,46 @@ export default async function HomePage() {
           </Container>
         </section>
       )}
+
+      <section className="border-t border-border bg-card/60 py-20 sm:py-28">
+        <Container>
+          <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
+            <SectionHeading
+              eyebrow="Haitech Labs"
+              title="Build first. Ship weekly."
+              description="An independent software venture studio — lean MVPs, internal tools, and micro-SaaS, from thesis to production."
+            />
+            <LinkButton href="/labs" variant="outline" className="shrink-0">
+              Explore the pipeline <ArrowRight aria-hidden="true" />
+            </LinkButton>
+          </div>
+          <div className="mt-10 border-t border-border">
+            {labProjects.map((project, index) => {
+              const meta = labStatusMeta[project.status];
+              return (
+                <AnimatedReveal key={project.id} delay={index * 0.04}>
+                  <a
+                    href={HAITECH_LABS_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group grid gap-2 border-b border-border py-5 transition-colors hover:bg-muted/40 sm:grid-cols-[1fr_auto] sm:items-center sm:gap-6 sm:py-6"
+                  >
+                    <div className="flex items-center gap-4">
+                      <span className={`size-2 shrink-0 ${meta.dotClass}`} aria-hidden="true" />
+                      <span className="text-lg font-bold tracking-tight">{project.name}</span>
+                      <span className="hidden font-mono text-[0.65rem] uppercase tracking-wider text-muted-foreground sm:inline">{project.category}</span>
+                    </div>
+                    <span className="flex items-center gap-2 font-mono text-[0.65rem] uppercase tracking-wider text-muted-foreground sm:justify-end">
+                      {meta.label}
+                      <ArrowRight className="size-3.5 text-primary transition-transform group-hover:translate-x-1" aria-hidden="true" />
+                    </span>
+                  </a>
+                </AnimatedReveal>
+              );
+            })}
+          </div>
+        </Container>
+      </section>
     </>
   );
 }

@@ -12,7 +12,8 @@ const navLinks = [
   { href: "/", label: "Index", index: "00" },
   { href: "/about", label: "About", index: "01" },
   { href: "/github", label: "Worklog", index: "02" },
-  { href: "/contact", label: "Contact", index: "03" },
+  { href: "/labs", label: "Labs", index: "03" },
+  { href: "/contact", label: "Contact", index: "04" },
 ];
 
 export function Navbar() {
