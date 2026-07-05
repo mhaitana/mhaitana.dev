@@ -14,7 +14,7 @@ import {
 export const metadata: Metadata = {
   title: "Labs",
   description:
-    "Haitech Labs — an independent software venture studio building lean MVPs, internal tools, and micro-SaaS. From thesis to production.",
+    "Haitech Labs — a one-person software studio building lean MVPs, internal tools, and micro-SaaS from thesis to production. Solo, self-funded, and pre-revenue.",
   alternates: {
     canonical: "/labs",
   },
@@ -35,9 +35,9 @@ export default function LabsPage() {
           </AnimatedReveal>
           <AnimatedReveal delay={0.1}>
             <p className="mt-6 max-w-2xl text-xl font-medium leading-snug tracking-[-0.02em] text-muted-foreground sm:text-2xl">
-              An independent software venture studio. We turn software ideas into
-              shipped products — lean MVPs, internal tools, and micro-SaaS, from
-              thesis to production.
+              A one-person software studio. I turn software ideas into shipped
+              products — lean MVPs, internal tools, and micro-SaaS, solo and
+              self-funded from thesis to production.
             </p>
           </AnimatedReveal>
           <AnimatedReveal delay={0.15}>
@@ -76,8 +76,8 @@ export default function LabsPage() {
         <Container>
           <SectionHeading
             eyebrow="The thesis"
-            title="A studio model for software, not slide decks."
-            description="Most ideas don't die from lack of funding — they die from lack of a shipped product and honest signal. We build first."
+            title="A builder's model for software, not slide decks."
+            description="Most ideas don't die from lack of funding — they die from lack of a shipped product and honest signal. I build first."
           />
           <div className="mt-12 grid gap-6 md:grid-cols-3">
             {labPillars.map((pillar, index) => {
@@ -111,8 +111,8 @@ export default function LabsPage() {
           <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
             <SectionHeading
               eyebrow="Pipeline"
-              title="Five builds, shipping weekly."
-              description="Every project here exists because someone wanted to use it. Filter by stage to see what's live, in alpha, or in development."
+              title="Five builds, shipping in public."
+              description="Every project here exists because I wanted to use it. One is live, the rest are still in the workshop — filter by stage to see what's shipping."
             />
             <LinkButton href={HAITECH_LABS_URL} external variant="outline" className="shrink-0">
               Full studio <ExternalLink aria-hidden="true" />

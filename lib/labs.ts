@@ -1,5 +1,5 @@
 // ============================================================================
-//  haitech labs — venture studio pipeline
+//  haitech labs — solo-founder software studio pipeline
 //
 //  Single source of truth for the Labs area on mhaitana.dev.
 //  Content mirrors the canonical source at ~/Projects/haitechlabs/src/data/projects.ts.
@@ -144,27 +144,27 @@ export const labFilters: { value: LabFilter; label: string }[] = [
 ];
 
 export const labStats: { value: string; label: string }[] = [
-  { value: "5", label: "Builds in pipeline" },
-  { value: "1", label: "In production" },
-  { value: "4", label: "Shipping now" },
-  { value: "100%", label: "Founder-built" },
+  { value: "1", label: "Founder, shipping solo" },
+  { value: String(labProjects.length), label: "Builds in the pipeline" },
+  { value: String(labProjects.filter((p) => p.status === "live").length), label: "Live in production" },
+  { value: String(labProjects.filter((p) => p.status !== "live").length), label: "Still in the workshop" },
 ];
 
 export const labPillars: { icon: LucideIcon; title: string; body: string }[] = [
   {
     icon: Boxes,
-    title: "What we build",
-    body: "lean MVPs, internal tools, and micro-SaaS. we pick sharp, well-defined problems and ship the smallest product that proves the thesis.",
+    title: "What I build",
+    body: "lean MVPs, internal tools, and micro-SaaS. i pick sharp, well-defined problems and ship the smallest product that proves the thesis.",
   },
   {
     icon: Gauge,
-    title: "How we build",
-    body: "a small senior team, design-led, shipping to production every week. metrics from day one — every build is either earning signal or earning revenue.",
+    title: "How I build",
+    body: "solo, design-led, shipping to production in public. metrics from day one — every build is either earning signal or it isn't worth keeping.",
   },
   {
     icon: Rocket,
     title: "The model",
-    body: "we build, validate, then decide: spin out with a dedicated operator and retain equity, or sunset and move on. we keep what compounds.",
+    body: "i build, validate, then decide: keep going, bring on a partner or operator, or sunset and move on. keep what compounds.",
   },
 ];
 
