@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-01T19:48:59.422Z",
+  "fetched_at": "2026-07-11T11:53:04.313Z",
   "username": "mhaitana",
   "authenticated": true,
   "profile": {
@@ -11,64 +11,65 @@
     "blog": "mhaitana.dev",
     "location": "Melbourne, Australia",
     "bio": null,
-    "public_repos": 3,
+    "public_repos": 5,
     "public_gists": 0,
-    "followers": 0,
-    "following": 0,
+    "followers": 1,
+    "following": 1,
     "created_at": "2022-06-14T07:49:58Z",
-    "updated_at": "2026-06-27T14:59:44Z"
+    "updated_at": "2026-07-10T08:56:46Z"
   },
   "repos": [
     {
-      "id": 1282227497,
-      "name": "mhaitana.dev",
-      "full_name": "mhaitana/mhaitana.dev",
-      "html_url": "https://github.com/mhaitana/mhaitana.dev",
-      "description": "A theme-aware personal website and GitHub dashboard. Features a fluid, mobile-optimized design, dynamic contribution graph, and interactive timeline. Built with Next.js 15, Tailwind v4, and Archivo/Space Grotesk typography.",
+      "id": 1297253139,
+      "name": "agentlens",
+      "full_name": "mhaitana/agentlens",
+      "html_url": "https://github.com/mhaitana/agentlens",
+      "description": "Local-first, privacy-first analytics & coaching for AI coding agents.",
       "fork": false,
-      "created_at": "2026-06-27T13:46:14Z",
-      "updated_at": "2026-06-30T13:16:08Z",
-      "pushed_at": "2026-06-30T13:15:34Z",
-      "size": 307,
+      "created_at": "2026-07-11T08:08:50Z",
+      "updated_at": "2026-07-11T11:43:17Z",
+      "pushed_at": "2026-07-11T11:43:10Z",
+      "size": 1214,
       "stargazers_count": 0,
       "watchers_count": 0,
       "forks_count": 0,
       "open_issues_count": 0,
       "language": "TypeScript",
       "languages": {
-        "TypeScript": 105858,
-        "JavaScript": 20038,
-        "CSS": 6641
+        "TypeScript": 1456956,
+        "JavaScript": 23164,
+        "CSS": 4788,
+        "HTML": 648
       },
       "topics": [
-        "framer-motion",
-        "github-api",
-        "nextjs",
-        "portfolio",
-        "react",
-        "tailwindcss",
-        "typescript"
-      ],
-      "homepage": "https://mhaitana.dev",
-      "detectedTechnologies": [
-        "react",
+        "agent-analytics",
+        "ai-agents",
         "analytics",
-        "class-variance-authority",
-        "clsx",
-        "framer-motion",
-        "lucide-react",
-        "nextjs",
-        "next-themes",
-        "shadcn",
-        "tailwind-merge",
-        "tw-animate-css",
-        "eslintrc",
-        "postcss",
+        "claude-code",
+        "developer-tools",
+        "local-first",
+        "opentelemetry",
+        "privacy-first",
+        "prompt-coaching"
+      ],
+      "homepage": "https://mhaitana.github.io/agentlens",
+      "detectedTechnologies": [
+        "cli",
+        "js",
         "nodejs",
         "eslint",
-        "eslint-config-next",
-        "tailwindcss",
-        "typescript"
+        "prettier",
+        "tsup",
+        "turbo",
+        "typescript",
+        "typescript-eslint",
+        "vitest",
+        "actions/checkout",
+        "pnpm/action-setup",
+        "actions/setup-node",
+        "actions/configure-pages",
+        "actions/upload-pages-artifact",
+        "actions/deploy-pages"
       ]
     },
     {
@@ -79,22 +80,22 @@
       "description": "Compress tool outputs, logs, files, and RAG chunks before they reach the LLM. 60-95% fewer tokens, same answers. Library, proxy, MCP server.",
       "fork": true,
       "created_at": "2026-06-26T05:27:22Z",
-      "updated_at": "2026-06-30T08:11:54Z",
-      "pushed_at": "2026-06-30T08:14:15Z",
-      "size": 50150,
+      "updated_at": "2026-07-08T23:37:14Z",
+      "pushed_at": "2026-07-08T23:40:13Z",
+      "size": 51883,
       "stargazers_count": 0,
       "watchers_count": 0,
       "forks_count": 0,
       "open_issues_count": 0,
       "language": "Python",
       "languages": {
-        "Python": 13203699,
-        "Rust": 2601254,
-        "TypeScript": 427779,
-        "HTML": 175301,
+        "Python": 14062854,
+        "Rust": 2611525,
+        "TypeScript": 435484,
+        "HTML": 176689,
         "Shell": 63575,
         "PowerShell": 62412,
-        "Dockerfile": 17173,
+        "Dockerfile": 19902,
         "PLpgSQL": 11669,
         "Makefile": 7645,
         "C": 7497,
@@ -114,6 +115,7 @@
         "ast-grep-cli",
         "tomli",
         "python",
+        "pathlib",
         "${distroless-image}",
         "runtime-slim-base",
         "qdrant",
@@ -152,6 +154,96 @@
       ]
     },
     {
+      "id": 1290075458,
+      "name": "agent-usage",
+      "full_name": "mhaitana/agent-usage",
+      "html_url": "https://github.com/mhaitana/agent-usage",
+      "description": "Local-only dashboard that reads Claude Code, Codex, OpenCode, GitHub Copilot, and Antigravity usage live from the filesystem - token/cost analytics for the first four, activity-only for Antigravity. No DB, no auth, no external requests.",
+      "fork": false,
+      "created_at": "2026-07-05T14:52:48Z",
+      "updated_at": "2026-07-06T05:56:20Z",
+      "pushed_at": "2026-07-06T05:54:32Z",
+      "size": 1030,
+      "stargazers_count": 0,
+      "watchers_count": 0,
+      "forks_count": 0,
+      "open_issues_count": 0,
+      "language": "TypeScript",
+      "languages": {
+        "TypeScript": 196465,
+        "JavaScript": 34145,
+        "CSS": 9796
+      },
+      "topics": [],
+      "homepage": "https://agent-usage.haitechlabs.com",
+      "detectedTechnologies": [
+        "analytics",
+        "better-sqlite3",
+        "nextjs",
+        "react",
+        "recharts",
+        "postcss",
+        "nodejs",
+        "autoprefixer",
+        "eslint",
+        "eslint-config-next",
+        "tailwindcss",
+        "typescript"
+      ]
+    },
+    {
+      "id": 1282227497,
+      "name": "mhaitana.dev",
+      "full_name": "mhaitana/mhaitana.dev",
+      "html_url": "https://github.com/mhaitana/mhaitana.dev",
+      "description": "A theme-aware personal website and GitHub dashboard. Features a fluid, mobile-optimized design, dynamic contribution graph, and interactive timeline. Built with Next.js 15, Tailwind v4, and Archivo/Space Grotesk typography.",
+      "fork": false,
+      "created_at": "2026-06-27T13:46:14Z",
+      "updated_at": "2026-07-05T13:03:05Z",
+      "pushed_at": "2026-07-05T13:03:01Z",
+      "size": 332,
+      "stargazers_count": 0,
+      "watchers_count": 0,
+      "forks_count": 0,
+      "open_issues_count": 0,
+      "language": "TypeScript",
+      "languages": {
+        "TypeScript": 125129,
+        "JavaScript": 20119,
+        "CSS": 6641
+      },
+      "topics": [
+        "framer-motion",
+        "github-api",
+        "nextjs",
+        "portfolio",
+        "react",
+        "tailwindcss",
+        "typescript"
+      ],
+      "homepage": "https://mhaitana.dev",
+      "detectedTechnologies": [
+        "react",
+        "analytics",
+        "class-variance-authority",
+        "clsx",
+        "framer-motion",
+        "lucide-react",
+        "nextjs",
+        "next-themes",
+        "shadcn",
+        "tailwind-merge",
+        "tw-animate-css",
+        "eslintrc",
+        "postcss",
+        "nodejs",
+        "eslint",
+        "eslint-config-next",
+        "tailwindcss",
+        "typescript"
+      ]
+    },
+    {
       "id": 1270191512,
       "name": "docker-llm-stack",
       "full_name": "mhaitana/docker-llm-stack",
@@ -180,6 +272,423 @@
     }
   ],
   "events": [
+    {
+      "id": "14760008804",
+      "type": "PushEvent",
+      "public": true,
+      "created_at": "2026-07-11T11:43:11Z",
+      "actor": {
+        "login": "mhaitana",
+        "avatar_url": "https://avatars.githubusercontent.com/u/107464365?"
+      },
+      "repo": {
+        "id": 1297253139,
+        "name": "mhaitana/agentlens",
+        "url": "https://api.github.com/repos/mhaitana/agentlens"
+      },
+      "payload": {
+        "ref": "refs/heads/main"
+      }
+    },
+    {
+      "id": "14758555445",
+      "type": "PushEvent",
+      "public": true,
+      "created_at": "2026-07-11T11:09:02Z",
+      "actor": {
+        "login": "mhaitana",
+        "avatar_url": "https://avatars.githubusercontent.com/u/107464365?"
+      },
+      "repo": {
+        "id": 1297253139,
+        "name": "mhaitana/agentlens",
+        "url": "https://api.github.com/repos/mhaitana/agentlens"
+      },
+      "payload": {
+        "ref": "refs/heads/main"
+      }
+    },
+    {
+      "id": "14754367286",
+      "type": "PushEvent",
+      "public": true,
+      "created_at": "2026-07-11T09:31:23Z",
+      "actor": {
+        "login": "mhaitana",
+        "avatar_url": "https://avatars.githubusercontent.com/u/107464365?"
+      },
+      "repo": {
+        "id": 1297253139,
+        "name": "mhaitana/agentlens",
+        "url": "https://api.github.com/repos/mhaitana/agentlens"
+      },
+      "payload": {
+        "ref": "refs/heads/main"
+      }
+    },
+    {
+      "id": "14752810062",
+      "type": "PushEvent",
+      "public": true,
+      "created_at": "2026-07-11T08:57:01Z",
+      "actor": {
+        "login": "mhaitana",
+        "avatar_url": "https://avatars.githubusercontent.com/u/107464365?"
+      },
+      "repo": {
+        "id": 1297253139,
+        "name": "mhaitana/agentlens",
+        "url": "https://api.github.com/repos/mhaitana/agentlens"
+      },
+      "payload": {
+        "ref": "refs/heads/main"
+      }
+    },
+    {
+      "id": "14752551651",
+      "type": "PushEvent",
+      "public": true,
+      "created_at": "2026-07-11T08:51:13Z",
+      "actor": {
+        "login": "mhaitana",
+        "avatar_url": "https://avatars.githubusercontent.com/u/107464365?"
+      },
+      "repo": {
+        "id": 1297253139,
+        "name": "mhaitana/agentlens",
+        "url": "https://api.github.com/repos/mhaitana/agentlens"
+      },
+      "payload": {
+        "ref": "refs/heads/main"
+      }
+    },
+    {
+      "id": "14752202555",
+      "type": "PushEvent",
+      "public": true,
+      "created_at": "2026-07-11T08:43:19Z",
+      "actor": {
+        "login": "mhaitana",
+        "avatar_url": "https://avatars.githubusercontent.com/u/107464365?"
+      },
+      "repo": {
+        "id": 1297253139,
+        "name": "mhaitana/agentlens",
+        "url": "https://api.github.com/repos/mhaitana/agentlens"
+      },
+      "payload": {
+        "ref": "refs/heads/main"
+      }
+    },
+    {
+      "id": "11647448727",
+      "type": "PublicEvent",
+      "public": true,
+      "created_at": "2026-07-11T08:08:50Z",
+      "actor": {
+        "login": "mhaitana",
+        "avatar_url": "https://avatars.githubusercontent.com/u/107464365?"
+      },
+      "repo": {
+        "id": 1297253139,
+        "name": "mhaitana/agentlens",
+        "url": "https://api.github.com/repos/mhaitana/agentlens"
+      },
+      "payload": {}
+    },
+    {
+      "id": "14587119524",
+      "type": "PushEvent",
+      "public": true,
+      "created_at": "2026-07-08T23:36:58Z",
+      "actor": {
+        "login": "mhaitana",
+        "avatar_url": "https://avatars.githubusercontent.com/u/107464365?"
+      },
+      "repo": {
+        "id": 1280967831,
+        "name": "mhaitana/headroom",
+        "url": "https://api.github.com/repos/mhaitana/headroom"
+      },
+      "payload": {
+        "ref": "refs/heads/main"
+      }
+    },
+    {
+      "id": "14543844392",
+      "type": "PushEvent",
+      "public": true,
+      "created_at": "2026-07-08T10:01:44Z",
+      "actor": {
+        "login": "mhaitana",
+        "avatar_url": "https://avatars.githubusercontent.com/u/107464365?"
+      },
+      "repo": {
+        "id": 1280967831,
+        "name": "mhaitana/headroom",
+        "url": "https://api.github.com/repos/mhaitana/headroom"
+      },
+      "payload": {
+        "ref": "refs/heads/main"
+      }
+    },
+    {
+      "id": "14522298062",
+      "type": "PushEvent",
+      "public": true,
+      "created_at": "2026-07-08T01:27:54Z",
+      "actor": {
+        "login": "mhaitana",
+        "avatar_url": "https://avatars.githubusercontent.com/u/107464365?"
+      },
+      "repo": {
+        "id": 1280967831,
+        "name": "mhaitana/headroom",
+        "url": "https://api.github.com/repos/mhaitana/headroom"
+      },
+      "payload": {
+        "ref": "refs/heads/main"
+      }
+    },
+    {
+      "id": "14465860816",
+      "type": "PushEvent",
+      "public": true,
+      "created_at": "2026-07-07T06:02:22Z",
+      "actor": {
+        "login": "mhaitana",
+        "avatar_url": "https://avatars.githubusercontent.com/u/107464365?"
+      },
+      "repo": {
+        "id": 1280967831,
+        "name": "mhaitana/headroom",
+        "url": "https://api.github.com/repos/mhaitana/headroom"
+      },
+      "payload": {
+        "ref": "refs/heads/docker-bedrock-only"
+      }
+    },
+    {
+      "id": "14465297428",
+      "type": "CreateEvent",
+      "public": true,
+      "created_at": "2026-07-07T05:48:29Z",
+      "actor": {
+        "login": "mhaitana",
+        "avatar_url": "https://avatars.githubusercontent.com/u/107464365?"
+      },
+      "repo": {
+        "id": 1280967831,
+        "name": "mhaitana/headroom",
+        "url": "https://api.github.com/repos/mhaitana/headroom"
+      },
+      "payload": {
+        "ref": "docker-bedrock-only",
+        "ref_type": "branch"
+      }
+    },
+    {
+      "id": "14456842232",
+      "type": "PushEvent",
+      "public": true,
+      "created_at": "2026-07-07T01:40:07Z",
+      "actor": {
+        "login": "mhaitana",
+        "avatar_url": "https://avatars.githubusercontent.com/u/107464365?"
+      },
+      "repo": {
+        "id": 1280967831,
+        "name": "mhaitana/headroom",
+        "url": "https://api.github.com/repos/mhaitana/headroom"
+      },
+      "payload": {
+        "ref": "refs/heads/main"
+      }
+    },
+    {
+      "id": "14400859807",
+      "type": "PushEvent",
+      "public": true,
+      "created_at": "2026-07-06T05:54:32Z",
+      "actor": {
+        "login": "mhaitana",
+        "avatar_url": "https://avatars.githubusercontent.com/u/107464365?"
+      },
+      "repo": {
+        "id": 1290075458,
+        "name": "mhaitana/agent-usage",
+        "url": "https://api.github.com/repos/mhaitana/agent-usage"
+      },
+      "payload": {
+        "ref": "refs/heads/main"
+      }
+    },
+    {
+      "id": "14393004582",
+      "type": "PushEvent",
+      "public": true,
+      "created_at": "2026-07-06T01:45:10Z",
+      "actor": {
+        "login": "mhaitana",
+        "avatar_url": "https://avatars.githubusercontent.com/u/107464365?"
+      },
+      "repo": {
+        "id": 1290075458,
+        "name": "mhaitana/agent-usage",
+        "url": "https://api.github.com/repos/mhaitana/agent-usage"
+      },
+      "payload": {
+        "ref": "refs/heads/main"
+      }
+    },
+    {
+      "id": "14389492742",
+      "type": "PushEvent",
+      "public": true,
+      "created_at": "2026-07-05T23:35:23Z",
+      "actor": {
+        "login": "mhaitana",
+        "avatar_url": "https://avatars.githubusercontent.com/u/107464365?"
+      },
+      "repo": {
+        "id": 1290075458,
+        "name": "mhaitana/agent-usage",
+        "url": "https://api.github.com/repos/mhaitana/agent-usage"
+      },
+      "payload": {
+        "ref": "refs/heads/main"
+      }
+    },
+    {
+      "id": "14388332643",
+      "type": "PushEvent",
+      "public": true,
+      "created_at": "2026-07-05T22:49:44Z",
+      "actor": {
+        "login": "mhaitana",
+        "avatar_url": "https://avatars.githubusercontent.com/u/107464365?"
+      },
+      "repo": {
+        "id": 1290075458,
+        "name": "mhaitana/agent-usage",
+        "url": "https://api.github.com/repos/mhaitana/agent-usage"
+      },
+      "payload": {
+        "ref": "refs/heads/main"
+      }
+    },
+    {
+      "id": "14374966029",
+      "type": "PushEvent",
+      "public": true,
+      "created_at": "2026-07-05T15:13:00Z",
+      "actor": {
+        "login": "mhaitana",
+        "avatar_url": "https://avatars.githubusercontent.com/u/107464365?"
+      },
+      "repo": {
+        "id": 1290075458,
+        "name": "mhaitana/agent-usage",
+        "url": "https://api.github.com/repos/mhaitana/agent-usage"
+      },
+      "payload": {
+        "ref": "refs/heads/main"
+      }
+    },
+    {
+      "id": "14374727349",
+      "type": "PushEvent",
+      "public": true,
+      "created_at": "2026-07-05T15:05:28Z",
+      "actor": {
+        "login": "mhaitana",
+        "avatar_url": "https://avatars.githubusercontent.com/u/107464365?"
+      },
+      "repo": {
+        "id": 1290075458,
+        "name": "mhaitana/agent-usage",
+        "url": "https://api.github.com/repos/mhaitana/agent-usage"
+      },
+      "payload": {
+        "ref": "refs/heads/main"
+      }
+    },
+    {
+      "id": "14374329693",
+      "type": "CreateEvent",
+      "public": true,
+      "created_at": "2026-07-05T14:53:11Z",
+      "actor": {
+        "login": "mhaitana",
+        "avatar_url": "https://avatars.githubusercontent.com/u/107464365?"
+      },
+      "repo": {
+        "id": 1290075458,
+        "name": "mhaitana/agent-usage",
+        "url": "https://api.github.com/repos/mhaitana/agent-usage"
+      },
+      "payload": {
+        "ref": "main",
+        "ref_type": "branch"
+      }
+    },
+    {
+      "id": "14371012071",
+      "type": "PushEvent",
+      "public": true,
+      "created_at": "2026-07-05T13:03:02Z",
+      "actor": {
+        "login": "mhaitana",
+        "avatar_url": "https://avatars.githubusercontent.com/u/107464365?"
+      },
+      "repo": {
+        "id": 1282227497,
+        "name": "mhaitana/mhaitana.dev",
+        "url": "https://api.github.com/repos/mhaitana/mhaitana.dev"
+      },
+      "payload": {
+        "ref": "refs/heads/main"
+      }
+    },
+    {
+      "id": "11306253811",
+      "type": "PullRequestEvent",
+      "public": true,
+      "created_at": "2026-07-03T03:51:06Z",
+      "actor": {
+        "login": "mhaitana",
+        "avatar_url": "https://avatars.githubusercontent.com/u/107464365?"
+      },
+      "repo": {
+        "id": 1129940957,
+        "name": "headroomlabs-ai/headroom",
+        "url": "https://api.github.com/repos/headroomlabs-ai/headroom"
+      },
+      "payload": {
+        "action": "merged",
+        "pull_request": {
+          "number": 1456
+        }
+      }
+    },
+    {
+      "id": "14190201027",
+      "type": "PushEvent",
+      "public": true,
+      "created_at": "2026-07-01T19:49:29Z",
+      "actor": {
+        "login": "mhaitana",
+        "avatar_url": "https://avatars.githubusercontent.com/u/107464365?"
+      },
+      "repo": {
+        "id": 1282227497,
+        "name": "mhaitana/mhaitana.dev",
+        "url": "https://api.github.com/repos/mhaitana/mhaitana.dev"
+      },
+      "payload": {
+        "ref": "refs/heads/main"
+      }
+    },
     {
       "id": "14112028845",
       "type": "PushEvent",
@@ -306,400 +815,33 @@
       "payload": {
         "ref": "refs/heads/main"
       }
-    },
-    {
-      "id": "14032127295",
-      "type": "PushEvent",
-      "public": true,
-      "created_at": "2026-06-29T04:41:01Z",
-      "actor": {
-        "login": "mhaitana",
-        "avatar_url": "https://avatars.githubusercontent.com/u/107464365?"
-      },
-      "repo": {
-        "id": 1282227497,
-        "name": "mhaitana/mhaitana.dev",
-        "url": "https://api.github.com/repos/mhaitana/mhaitana.dev"
-      },
-      "payload": {
-        "ref": "refs/heads/main"
-      }
-    },
-    {
-      "id": "14028413662",
-      "type": "PushEvent",
-      "public": true,
-      "created_at": "2026-06-29T02:30:19Z",
-      "actor": {
-        "login": "mhaitana",
-        "avatar_url": "https://avatars.githubusercontent.com/u/107464365?"
-      },
-      "repo": {
-        "id": 1282227497,
-        "name": "mhaitana/mhaitana.dev",
-        "url": "https://api.github.com/repos/mhaitana/mhaitana.dev"
-      },
-      "payload": {
-        "ref": "refs/heads/main"
-      }
-    },
-    {
-      "id": "14024403870",
-      "type": "PushEvent",
-      "public": true,
-      "created_at": "2026-06-28T23:55:41Z",
-      "actor": {
-        "login": "mhaitana",
-        "avatar_url": "https://avatars.githubusercontent.com/u/107464365?"
-      },
-      "repo": {
-        "id": 1280967831,
-        "name": "mhaitana/headroom",
-        "url": "https://api.github.com/repos/mhaitana/headroom"
-      },
-      "payload": {
-        "ref": "refs/heads/feat/bedrock-application-inference-profile-arn-support"
-      }
-    },
-    {
-      "id": "14024397595",
-      "type": "PushEvent",
-      "public": true,
-      "created_at": "2026-06-28T23:55:23Z",
-      "actor": {
-        "login": "mhaitana",
-        "avatar_url": "https://avatars.githubusercontent.com/u/107464365?"
-      },
-      "repo": {
-        "id": 1280967831,
-        "name": "mhaitana/headroom",
-        "url": "https://api.github.com/repos/mhaitana/headroom"
-      },
-      "payload": {
-        "ref": "refs/heads/main"
-      }
-    },
-    {
-      "id": "14023597309",
-      "type": "PushEvent",
-      "public": true,
-      "created_at": "2026-06-28T23:18:38Z",
-      "actor": {
-        "login": "mhaitana",
-        "avatar_url": "https://avatars.githubusercontent.com/u/107464365?"
-      },
-      "repo": {
-        "id": 1282227497,
-        "name": "mhaitana/mhaitana.dev",
-        "url": "https://api.github.com/repos/mhaitana/mhaitana.dev"
-      },
-      "payload": {
-        "ref": "refs/heads/main"
-      }
-    },
-    {
-      "id": "14008320130",
-      "type": "PushEvent",
-      "public": true,
-      "created_at": "2026-06-28T13:50:27Z",
-      "actor": {
-        "login": "mhaitana",
-        "avatar_url": "https://avatars.githubusercontent.com/u/107464365?"
-      },
-      "repo": {
-        "id": 1282227497,
-        "name": "mhaitana/mhaitana.dev",
-        "url": "https://api.github.com/repos/mhaitana/mhaitana.dev"
-      },
-      "payload": {
-        "ref": "refs/heads/main"
-      }
-    },
-    {
-      "id": "13990575354",
-      "type": "PushEvent",
-      "public": true,
-      "created_at": "2026-06-28T00:23:13Z",
-      "actor": {
-        "login": "mhaitana",
-        "avatar_url": "https://avatars.githubusercontent.com/u/107464365?"
-      },
-      "repo": {
-        "id": 1280967831,
-        "name": "mhaitana/headroom",
-        "url": "https://api.github.com/repos/mhaitana/headroom"
-      },
-      "payload": {
-        "ref": "refs/heads/main"
-      }
-    },
-    {
-      "id": "13976916258",
-      "type": "PushEvent",
-      "public": true,
-      "created_at": "2026-06-27T14:54:54Z",
-      "actor": {
-        "login": "mhaitana",
-        "avatar_url": "https://avatars.githubusercontent.com/u/107464365?"
-      },
-      "repo": {
-        "id": 1282227497,
-        "name": "mhaitana/mhaitana.dev",
-        "url": "https://api.github.com/repos/mhaitana/mhaitana.dev"
-      },
-      "payload": {
-        "ref": "refs/heads/main"
-      }
-    },
-    {
-      "id": "13976577831",
-      "type": "PushEvent",
-      "public": true,
-      "created_at": "2026-06-27T14:42:04Z",
-      "actor": {
-        "login": "mhaitana",
-        "avatar_url": "https://avatars.githubusercontent.com/u/107464365?"
-      },
-      "repo": {
-        "id": 1282227497,
-        "name": "mhaitana/mhaitana.dev",
-        "url": "https://api.github.com/repos/mhaitana/mhaitana.dev"
-      },
-      "payload": {
-        "ref": "refs/heads/main"
-      }
-    },
-    {
-      "id": "13975986171",
-      "type": "PushEvent",
-      "public": true,
-      "created_at": "2026-06-27T14:19:17Z",
-      "actor": {
-        "login": "mhaitana",
-        "avatar_url": "https://avatars.githubusercontent.com/u/107464365?"
-      },
-      "repo": {
-        "id": 1282227497,
-        "name": "mhaitana/mhaitana.dev",
-        "url": "https://api.github.com/repos/mhaitana/mhaitana.dev"
-      },
-      "payload": {
-        "ref": "refs/heads/main"
-      }
-    },
-    {
-      "id": "11062594518",
-      "type": "PublicEvent",
-      "public": true,
-      "created_at": "2026-06-27T13:46:14Z",
-      "actor": {
-        "login": "mhaitana",
-        "avatar_url": "https://avatars.githubusercontent.com/u/107464365?"
-      },
-      "repo": {
-        "id": 1282227497,
-        "name": "mhaitana/mhaitana.dev",
-        "url": "https://api.github.com/repos/mhaitana/mhaitana.dev"
-      },
-      "payload": {}
-    },
-    {
-      "id": "13974441579",
-      "type": "PushEvent",
-      "public": true,
-      "created_at": "2026-06-27T13:20:54Z",
-      "actor": {
-        "login": "mhaitana",
-        "avatar_url": "https://avatars.githubusercontent.com/u/107464365?"
-      },
-      "repo": {
-        "id": 1280967831,
-        "name": "mhaitana/headroom",
-        "url": "https://api.github.com/repos/mhaitana/headroom"
-      },
-      "payload": {
-        "ref": "refs/heads/feat/bedrock-application-inference-profile-arn-support"
-      }
-    },
-    {
-      "id": "13974416131",
-      "type": "PushEvent",
-      "public": true,
-      "created_at": "2026-06-27T13:19:55Z",
-      "actor": {
-        "login": "mhaitana",
-        "avatar_url": "https://avatars.githubusercontent.com/u/107464365?"
-      },
-      "repo": {
-        "id": 1280967831,
-        "name": "mhaitana/headroom",
-        "url": "https://api.github.com/repos/mhaitana/headroom"
-      },
-      "payload": {
-        "ref": "refs/heads/main"
-      }
-    },
-    {
-      "id": "13934767994",
-      "type": "PushEvent",
-      "public": true,
-      "created_at": "2026-06-26T14:17:56Z",
-      "actor": {
-        "login": "mhaitana",
-        "avatar_url": "https://avatars.githubusercontent.com/u/107464365?"
-      },
-      "repo": {
-        "id": 1280967831,
-        "name": "mhaitana/headroom",
-        "url": "https://api.github.com/repos/mhaitana/headroom"
-      },
-      "payload": {
-        "ref": "refs/heads/feat/bedrock-application-inference-profile-arn-support"
-      }
-    },
-    {
-      "id": "11007620386",
-      "type": "PullRequestEvent",
-      "public": true,
-      "created_at": "2026-06-26T05:47:12Z",
-      "actor": {
-        "login": "mhaitana",
-        "avatar_url": "https://avatars.githubusercontent.com/u/107464365?"
-      },
-      "repo": {
-        "id": 1129940957,
-        "name": "headroomlabs-ai/headroom",
-        "url": "https://api.github.com/repos/headroomlabs-ai/headroom"
-      },
-      "payload": {
-        "action": "opened",
-        "pull_request": {
-          "number": 1456
-        }
-      }
-    },
-    {
-      "id": "13914559346",
-      "type": "PushEvent",
-      "public": true,
-      "created_at": "2026-06-26T06:10:08Z",
-      "actor": {
-        "login": "mhaitana",
-        "avatar_url": "https://avatars.githubusercontent.com/u/107464365?"
-      },
-      "repo": {
-        "id": 1280967831,
-        "name": "mhaitana/headroom",
-        "url": "https://api.github.com/repos/mhaitana/headroom"
-      },
-      "payload": {
-        "ref": "refs/heads/feat/bedrock-application-inference-profile-arn-support"
-      }
-    },
-    {
-      "id": "13913262539",
-      "type": "CreateEvent",
-      "public": true,
-      "created_at": "2026-06-26T05:28:24Z",
-      "actor": {
-        "login": "mhaitana",
-        "avatar_url": "https://avatars.githubusercontent.com/u/107464365?"
-      },
-      "repo": {
-        "id": 1280967831,
-        "name": "mhaitana/headroom",
-        "url": "https://api.github.com/repos/mhaitana/headroom"
-      },
-      "payload": {
-        "ref": "feat/bedrock-application-inference-profile-arn-support",
-        "ref_type": "branch"
-      }
-    },
-    {
-      "id": "11005012265",
-      "type": "ForkEvent",
-      "public": true,
-      "created_at": "2026-06-26T05:27:22Z",
-      "actor": {
-        "login": "mhaitana",
-        "avatar_url": "https://avatars.githubusercontent.com/u/107464365?"
-      },
-      "repo": {
-        "id": 1129940957,
-        "name": "headroomlabs-ai/headroom",
-        "url": "https://api.github.com/repos/headroomlabs-ai/headroom"
-      },
-      "payload": {
-        "action": "forked"
-      }
-    },
-    {
-      "id": "13410442097",
-      "type": "PushEvent",
-      "public": true,
-      "created_at": "2026-06-16T13:49:24Z",
-      "actor": {
-        "login": "mhaitana",
-        "avatar_url": "https://avatars.githubusercontent.com/u/107464365?"
-      },
-      "repo": {
-        "id": 1270191512,
-        "name": "mhaitana/docker-llm-stack",
-        "url": "https://api.github.com/repos/mhaitana/docker-llm-stack"
-      },
-      "payload": {
-        "ref": "refs/heads/main"
-      }
-    },
-    {
-      "id": "13409758691",
-      "type": "PushEvent",
-      "public": true,
-      "created_at": "2026-06-16T13:36:19Z",
-      "actor": {
-        "login": "mhaitana",
-        "avatar_url": "https://avatars.githubusercontent.com/u/107464365?"
-      },
-      "repo": {
-        "id": 1270191512,
-        "name": "mhaitana/docker-llm-stack",
-        "url": "https://api.github.com/repos/mhaitana/docker-llm-stack"
-      },
-      "payload": {
-        "ref": "refs/heads/main"
-      }
     }
   ],
   "languageStats": [
     {
-      "name": "TypeScript",
-      "bytes": 15888478,
-      "percentage": 48.6
+      "name": "Python",
+      "bytes": 14117045,
+      "percentage": 44.7
     },
     {
-      "name": "Python",
-      "bytes": 13257890,
-      "percentage": 40.5
+      "name": "TypeScript",
+      "bytes": 14002475,
+      "percentage": 44.3
     },
     {
       "name": "Rust",
-      "bytes": 2601254,
-      "percentage": 8
+      "bytes": 2611525,
+      "percentage": 8.3
     },
     {
       "name": "JavaScript",
-      "bytes": 284260,
-      "percentage": 0.9
+      "bytes": 241221,
+      "percentage": 0.8
     },
     {
       "name": "HTML",
-      "bytes": 186371,
+      "bytes": 188407,
       "percentage": 0.6
-    },
-    {
-      "name": "PLpgSQL",
-      "bytes": 137880,
-      "percentage": 0.4
     },
     {
       "name": "TSQL",
@@ -708,8 +850,13 @@
     },
     {
       "name": "CSS",
-      "bytes": 85184,
+      "bytes": 94943,
       "percentage": 0.3
+    },
+    {
+      "name": "PLpgSQL",
+      "bytes": 70397,
+      "percentage": 0.2
     },
     {
       "name": "Shell",
@@ -723,7 +870,7 @@
     },
     {
       "name": "Dockerfile",
-      "bytes": 17173,
+      "bytes": 19902,
       "percentage": 0.1
     },
     {
@@ -737,30 +884,61 @@
       "percentage": 0
     },
     {
+      "name": "Kotlin",
+      "bytes": 6645,
+      "percentage": 0
+    },
+    {
+      "name": "Swift",
+      "bytes": 5965,
+      "percentage": 0
+    },
+    {
       "name": "HCL",
       "bytes": 1815,
+      "percentage": 0
+    },
+    {
+      "name": "Ruby",
+      "bytes": 645,
       "percentage": 0
     }
   ],
   "detectedTechnologies": {
-    "Frontend": [
+    "Backend": [
       {
-        "name": "Framer Motion",
-        "normalisedName": "framer-motion",
-        "count": 1,
+        "name": "Nodejs",
+        "normalisedName": "nodejs",
+        "count": 3,
         "repos": 0,
-        "category": "Frontend"
-      },
+        "category": "Backend"
+      }
+    ],
+    "Frontend": [
       {
         "name": "Nextjs",
         "normalisedName": "nextjs",
-        "count": 1,
+        "count": 2,
         "repos": 0,
         "category": "Frontend"
       },
       {
         "name": "React",
         "normalisedName": "react",
+        "count": 2,
+        "repos": 0,
+        "category": "Frontend"
+      },
+      {
+        "name": "Tailwindcss",
+        "normalisedName": "tailwindcss",
+        "count": 2,
+        "repos": 0,
+        "category": "Frontend"
+      },
+      {
+        "name": "Framer Motion",
+        "normalisedName": "framer-motion",
         "count": 1,
         "repos": 0,
         "category": "Frontend"
@@ -773,8 +951,8 @@
         "category": "Frontend"
       },
       {
-        "name": "Tailwindcss",
-        "normalisedName": "tailwindcss",
+        "name": "Turbo",
+        "normalisedName": "turbo",
         "count": 1,
         "repos": 0,
         "category": "Frontend"
@@ -812,58 +990,19 @@
         "category": "Databases"
       }
     ],
-    "Backend": [
+    "Testing": [
       {
-        "name": "Nodejs",
-        "normalisedName": "nodejs",
+        "name": "Vitest",
+        "normalisedName": "vitest",
         "count": 1,
         "repos": 0,
-        "category": "Backend"
+        "category": "Testing"
       }
     ]
   },
   "contributionCalendar": {
-    "totalContributions": 1138,
+    "totalContributions": 1292,
     "weeks": [
-      {
-        "contributionDays": [
-          {
-            "date": "2025-06-29",
-            "contributionCount": 0,
-            "color": "#ebedf0"
-          },
-          {
-            "date": "2025-06-30",
-            "contributionCount": 1,
-            "color": "#9be9a8"
-          },
-          {
-            "date": "2025-07-01",
-            "contributionCount": 1,
-            "color": "#9be9a8"
-          },
-          {
-            "date": "2025-07-02",
-            "contributionCount": 1,
-            "color": "#9be9a8"
-          },
-          {
-            "date": "2025-07-03",
-            "contributionCount": 2,
-            "color": "#9be9a8"
-          },
-          {
-            "date": "2025-07-04",
-            "contributionCount": 5,
-            "color": "#9be9a8"
-          },
-          {
-            "date": "2025-07-05",
-            "contributionCount": 1,
-            "color": "#9be9a8"
-          }
-        ]
-      },
       {
         "contributionDays": [
           {
@@ -1001,7 +1140,7 @@
           {
             "date": "2025-07-30",
             "contributionCount": 6,
-            "color": "#9be9a8"
+            "color": "#40c463"
           },
           {
             "date": "2025-07-31",
@@ -1128,7 +1267,7 @@
           {
             "date": "2025-08-22",
             "contributionCount": 6,
-            "color": "#9be9a8"
+            "color": "#40c463"
           },
           {
             "date": "2025-08-23",
@@ -1440,7 +1579,7 @@
           {
             "date": "2025-10-17",
             "contributionCount": 6,
-            "color": "#9be9a8"
+            "color": "#40c463"
           },
           {
             "date": "2025-10-18",
@@ -1625,7 +1764,7 @@
           {
             "date": "2025-11-19",
             "contributionCount": 6,
-            "color": "#9be9a8"
+            "color": "#40c463"
           },
           {
             "date": "2025-11-20",
@@ -2083,7 +2222,7 @@
           {
             "date": "2026-02-09",
             "contributionCount": 6,
-            "color": "#9be9a8"
+            "color": "#40c463"
           },
           {
             "date": "2026-02-10",
@@ -2132,7 +2271,7 @@
           {
             "date": "2026-02-18",
             "contributionCount": 6,
-            "color": "#9be9a8"
+            "color": "#40c463"
           },
           {
             "date": "2026-02-19",
@@ -2205,7 +2344,7 @@
           {
             "date": "2026-03-03",
             "contributionCount": 12,
-            "color": "#40c463"
+            "color": "#30a14e"
           },
           {
             "date": "2026-03-04",
@@ -2303,7 +2442,7 @@
           {
             "date": "2026-03-21",
             "contributionCount": 6,
-            "color": "#9be9a8"
+            "color": "#40c463"
           }
         ]
       },
@@ -2322,7 +2461,7 @@
           {
             "date": "2026-03-24",
             "contributionCount": 12,
-            "color": "#40c463"
+            "color": "#30a14e"
           },
           {
             "date": "2026-03-25",
@@ -2366,7 +2505,7 @@
           {
             "date": "2026-04-01",
             "contributionCount": 6,
-            "color": "#9be9a8"
+            "color": "#40c463"
           },
           {
             "date": "2026-04-02",
@@ -2375,7 +2514,7 @@
           },
           {
             "date": "2026-04-03",
-            "contributionCount": 2,
+            "contributionCount": 1,
             "color": "#9be9a8"
           },
           {
@@ -2517,7 +2656,7 @@
           {
             "date": "2026-04-28",
             "contributionCount": 6,
-            "color": "#9be9a8"
+            "color": "#40c463"
           },
           {
             "date": "2026-04-29",
@@ -2561,7 +2700,7 @@
           {
             "date": "2026-05-06",
             "contributionCount": 6,
-            "color": "#9be9a8"
+            "color": "#40c463"
           },
           {
             "date": "2026-05-07",
@@ -2712,12 +2851,12 @@
           {
             "date": "2026-06-02",
             "contributionCount": 6,
-            "color": "#9be9a8"
+            "color": "#40c463"
           },
           {
             "date": "2026-06-03",
             "contributionCount": 6,
-            "color": "#9be9a8"
+            "color": "#40c463"
           },
           {
             "date": "2026-06-04",
@@ -2785,12 +2924,12 @@
           {
             "date": "2026-06-15",
             "contributionCount": 6,
-            "color": "#9be9a8"
+            "color": "#40c463"
           },
           {
             "date": "2026-06-16",
             "contributionCount": 12,
-            "color": "#40c463"
+            "color": "#30a14e"
           },
           {
             "date": "2026-06-17",
@@ -2805,7 +2944,7 @@
           {
             "date": "2026-06-19",
             "contributionCount": 6,
-            "color": "#9be9a8"
+            "color": "#40c463"
           },
           {
             "date": "2026-06-20",
@@ -2848,7 +2987,7 @@
           },
           {
             "date": "2026-06-27",
-            "contributionCount": 4,
+            "contributionCount": 5,
             "color": "#9be9a8"
           }
         ]
@@ -2862,7 +3001,7 @@
           },
           {
             "date": "2026-06-29",
-            "contributionCount": 15,
+            "contributionCount": 16,
             "color": "#30a14e"
           },
           {
@@ -2873,12 +3012,61 @@
           {
             "date": "2026-07-01",
             "contributionCount": 6,
-            "color": "#9be9a8"
+            "color": "#40c463"
           },
           {
             "date": "2026-07-02",
-            "contributionCount": 2,
+            "contributionCount": 13,
+            "color": "#30a14e"
+          },
+          {
+            "date": "2026-07-03",
+            "contributionCount": 4,
             "color": "#9be9a8"
+          },
+          {
+            "date": "2026-07-04",
+            "contributionCount": 3,
+            "color": "#9be9a8"
+          }
+        ]
+      },
+      {
+        "contributionDays": [
+          {
+            "date": "2026-07-05",
+            "contributionCount": 14,
+            "color": "#30a14e"
+          },
+          {
+            "date": "2026-07-06",
+            "contributionCount": 30,
+            "color": "#216e39"
+          },
+          {
+            "date": "2026-07-07",
+            "contributionCount": 19,
+            "color": "#216e39"
+          },
+          {
+            "date": "2026-07-08",
+            "contributionCount": 28,
+            "color": "#216e39"
+          },
+          {
+            "date": "2026-07-09",
+            "contributionCount": 20,
+            "color": "#216e39"
+          },
+          {
+            "date": "2026-07-10",
+            "contributionCount": 12,
+            "color": "#30a14e"
+          },
+          {
+            "date": "2026-07-11",
+            "contributionCount": 23,
+            "color": "#216e39"
           }
         ]
       }
