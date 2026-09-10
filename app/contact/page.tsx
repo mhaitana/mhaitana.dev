@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { ArrowUpRight, Github, Linkedin, Mail, MapPin } from "lucide-react";
 import { Container } from "@/components/container";
-import { AnimatedReveal } from "@/components/animated-reveal";
+import { CopyEmail } from "@/components/copy-email";
+import { LinkButton } from "@/components/link-button";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -9,8 +10,8 @@ export const metadata: Metadata = {
   alternates: { canonical: "/contact" },
 };
 
-const contactLinks = [
-  { label: "Email", href: "mailto:mhaitana@gmail.com", icon: Mail, value: "mhaitana@gmail.com", note: "Best for projects and opportunities" },
+const email = "mhaitana@gmail.com";
+const socialLinks = [
   { label: "LinkedIn", href: "https://www.linkedin.com/in/mhaitana", icon: Linkedin, value: "/in/mhaitana", note: "Professional network" },
   { label: "GitHub", href: "https://github.com/mhaitana", icon: Github, value: "@mhaitana", note: "Code and public activity" },
 ];
@@ -18,43 +19,53 @@ const contactLinks = [
 export default function ContactPage() {
   return (
     <>
-      <section className="page-header" data-index="04">
+      <section className="page-header" data-index="05">
         <Container className="relative z-10">
           <p className="eyebrow">Contact</p>
-          <h1 className="mt-7 max-w-5xl text-6xl font-bold leading-[0.88] tracking-[-0.07em] sm:text-8xl lg:text-9xl">Let&apos;s make the complex clear.</h1>
-          <div className="mt-10 flex items-center gap-2 text-sm text-muted-foreground">
-            <span className="size-2 bg-emerald-500" aria-hidden="true" /> Open to thoughtful conversations
-          </div>
+          <h1 className="page-title mt-6 max-w-5xl">Let&apos;s make the complex clear.</h1>
+          <p className="mt-6 max-w-2xl text-xl font-medium leading-relaxed tracking-[-0.02em] text-muted-foreground">
+            Have a platform to untangle or a product to ship? I’m open to conversations about senior engineering roles, consulting, and collaboration.
+          </p>
         </Container>
       </section>
 
-      <section className="py-20 sm:py-28">
+      <section className="section-space">
         <Container>
-          <div className="grid gap-12 lg:grid-cols-[0.6fr_1.4fr] lg:gap-20">
-            <AnimatedReveal>
-              <div className="lg:sticky lg:top-28">
-                <p className="text-2xl font-medium leading-snug tracking-[-0.03em]">Have a platform to untangle, a product to ship, or a good technical rabbit hole?</p>
-                <p className="mt-5 leading-relaxed text-muted-foreground">Send a note with a little context. I’m especially interested in ambitious product engineering, developer platforms, local-first AI, and systems work.</p>
-                <div className="mt-8 flex items-center gap-3 border-t border-border pt-5 font-mono text-xs uppercase tracking-wider text-muted-foreground">
-                  <MapPin className="size-4 text-primary" aria-hidden="true" /> Melbourne, Australia
+          <div className="grid gap-10 lg:grid-cols-[1.25fr_0.75fr] lg:gap-16">
+            <div className="min-w-0">
+              <div className="border border-border bg-card p-5 sm:p-7">
+                <p className="eyebrow">The best way to reach me</p>
+                <h2 className="mt-4 break-words text-[clamp(1.5rem,3vw,2.25rem)] font-bold tracking-[-0.045em]">
+                  <a href={`mailto:${email}`} className="underline-offset-4 hover:underline">{email}</a>
+                </h2>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">Email is best for projects and opportunities.</p>
+                <div className="mt-6 flex flex-wrap items-start gap-3">
+                  <LinkButton href={`mailto:${email}`}><Mail aria-hidden="true" />Send an email</LinkButton>
+                  <CopyEmail email={email} />
                 </div>
               </div>
-            </AnimatedReveal>
 
-            <div className="border-t border-border">
-              {contactLinks.map((link, index) => (
-                <AnimatedReveal key={link.label} delay={index * 0.05}>
-                  <a href={link.href} target={link.href.startsWith("http") ? "_blank" : undefined} rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined} className="group grid min-h-36 gap-5 border-b border-border py-7 transition-colors hover:bg-card sm:grid-cols-[3rem_1fr_auto] sm:items-center sm:px-5">
-                    <span className="flex size-11 items-center justify-center border border-border text-primary transition-colors group-hover:border-primary group-hover:bg-primary group-hover:text-primary-foreground"><link.icon className="size-5" aria-hidden="true" /></span>
-                    <div>
-                      <p className="font-mono text-[0.65rem] font-bold uppercase tracking-[0.14em] text-muted-foreground">0{index + 1} / {link.label}</p>
-                      <p className="mt-2 text-2xl font-bold tracking-[-0.035em] sm:text-3xl">{link.value}</p>
-                      <p className="mt-1 text-sm text-muted-foreground">{link.note}</p>
-                    </div>
-                    <ArrowUpRight className="size-6 text-muted-foreground transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-primary" aria-hidden="true" />
-                  </a>
-                </AnimatedReveal>
-              ))}
+              <ul className="mt-6 border-t border-border" aria-label="Social profiles">
+                {socialLinks.map((link) => (
+                  <li key={link.label}>
+                    <a href={link.href} target="_blank" rel="noopener noreferrer" className="group flex min-h-24 items-center gap-4 border-b border-border py-5 transition-colors hover:bg-card sm:px-3">
+                      <link.icon className="size-5 shrink-0 text-muted-foreground group-hover:text-primary" aria-hidden="true" />
+                      <div className="min-w-0 flex-1">
+                        <p className="font-semibold">{link.label}<span className="ml-3 text-sm font-normal text-muted-foreground">{link.value}</span></p>
+                        <p className="mt-1 text-sm text-muted-foreground">{link.note}</p>
+                      </div>
+                      <ArrowUpRight className="size-5 shrink-0 text-muted-foreground group-hover:text-primary" aria-hidden="true" />
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="max-w-xl">
+              <h2 className="text-2xl font-bold tracking-[-0.03em]">A little context is a good start.</h2>
+              <p className="mt-4 leading-relaxed text-muted-foreground">Tell me what you’re working on and where I could help. My interests include product engineering, developer platforms, local-first AI, and systems work.</p>
+              <p className="mt-6 flex items-center gap-2 text-sm text-muted-foreground"><span className="size-2 bg-emerald-600 dark:bg-emerald-400" aria-hidden="true" />Open to thoughtful conversations</p>
+              <p className="mt-5 flex items-center gap-2 text-sm text-muted-foreground"><MapPin className="size-4 shrink-0 text-primary" aria-hidden="true" />Melbourne, Australia</p>
             </div>
           </div>
         </Container>

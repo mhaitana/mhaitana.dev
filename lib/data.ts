@@ -1,24 +1,88 @@
+/** Calendar-month dates preserve the precision of the original career history. */
+export type YearMonth = `${number}-${number}`;
+
+const monthNames = [
+  "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
+];
+
+function monthIndex(value: YearMonth): number {
+  const match = /^(\d{4})-(0[1-9]|1[0-2])$/.exec(value);
+  if (!match) throw new RangeError(`Invalid career date: ${value}`);
+  return Number(match[1]) * 12 + Number(match[2]) - 1;
+}
+
+export function formatMonth(value: YearMonth): string {
+  const index = monthIndex(value);
+  return `${monthNames[index % 12]} ${Math.floor(index / 12)}`;
+}
+
+export function formatExperiencePeriod(startDate: YearMonth, endDate: YearMonth | null): string {
+  return `${formatMonth(startDate)} – ${endDate ? formatMonth(endDate) : "Present"}`;
+}
+
+/** Inclusive months match the original published durations for completed roles. */
+export function formatExperienceDuration(
+  startDate: YearMonth,
+  endDate: YearMonth | null,
+  asOf: Date = new Date(),
+): string {
+  const end = endDate
+    ? monthIndex(endDate)
+    : asOf.getUTCFullYear() * 12 + asOf.getUTCMonth();
+  const months = Math.max(0, end - monthIndex(startDate) + 1);
+  const years = Math.floor(months / 12);
+  const remainingMonths = months % 12;
+  return [
+    years ? `${years} ${years === 1 ? "year" : "years"}` : "",
+    remainingMonths || !years
+      ? `${remainingMonths} ${remainingMonths === 1 ? "month" : "months"}`
+      : "",
+  ].filter(Boolean).join(" ");
+}
+
+export const profile = {
+  name: "Matt Haitana",
+  role: "Senior Software Engineer",
+  location: "Melbourne, Australia",
+  email: "mhaitana@gmail.com",
+  website: "https://mhaitana.dev",
+  github: "https://github.com/mhaitana",
+  linkedin: "https://www.linkedin.com/in/mhaitana/",
+  lead: "I build product platforms, shared APIs and the systems that help teams deliver them.",
+  summary: "Senior software engineer with over a decade of experience across property technology and defence. Work spans customer-facing applications, multi-client GraphQL APIs, composable design systems and delivery infrastructure. Currently building web experiences at CoStar Group and exploring local-first AI and developer tooling.",
+};
+
 export interface Experience {
+  id: string;
   company: string;
   companyUrl?: string;
   type: string;
   location?: string;
-  period: string;
-  duration: string;
+  startDate: YearMonth;
+  endDate: YearMonth | null;
+  readonly period: string;
+  readonly duration: string;
   title: string;
+  summary: string;
   achievements: string[];
   technologies: string[];
 }
 
-export const experiences: Experience[] = [
+type ExperienceSource = Omit<Experience, "period" | "duration">;
+
+// Dates and achievements are the source for About, Resume and homepage evidence.
+const experienceSources: ExperienceSource[] = [
   {
+    id: "costar",
     company: "CoStar Group",
     companyUrl: "https://www.costargroup.com",
     type: "Full-time",
     location: "Melbourne, Victoria, Australia",
-    period: "Aug 2025 - Present",
-    duration: "11 months",
+    startDate: "2025-08",
+    endDate: null,
     title: "Senior Software Engineer",
+    summary: "Building customer-facing web and listing experiences with React and Next.js, in partnership with design and product teams.",
     achievements: [
       "Engineering high-visibility, premium customer-facing web surfaces and listing experiences using React 18/19 and Next.js 15.",
       "Collaborating closely with design, product, and cross-functional teams to design scalable platform architectures and ensure visual excellence.",
@@ -26,13 +90,15 @@ export const experiences: Experience[] = [
     technologies: ["React", "TypeScript", "Next.js", "Node.js", "GraphQL"],
   },
   {
+    id: "domain",
     company: "Domain",
     companyUrl: "https://www.domain.com.au",
     type: "Full-time",
     location: "Melbourne, Victoria, Australia · Hybrid",
-    period: "Feb 2020 - Aug 2025",
-    duration: "5 years 7 months",
+    startDate: "2020-02",
+    endDate: "2025-08",
     title: "Senior Software Engineer",
+    summary: "Led work across shared GraphQL APIs, design systems and delivery infrastructure. Progressed through four roles, from Frontend Developer to Senior Engineer.",
     achievements: [
       "Architected and maintained a multi-client GraphQL BFF (Apollo Server 4 / Express / Next.js) serving web, iOS, and Android clients simultaneously, implementing field-level authorization directives and OpenAPI-to-TypeScript codegen to eliminate contract drift.",
       "Led cross-platform delivery of real-time agent productivity products, establishing unified type-safe codegen pipelines, visual regression testing (Percy), snapshot testing (Roborazzi), and 80%+ coverage gates.",
@@ -43,13 +109,15 @@ export const experiences: Experience[] = [
     technologies: ["React", "Node.js", "TypeScript", "GraphQL", "AWS", "Docker", "CDK", "Jenkins", "Lerna", "Cypress", "Jest"],
   },
   {
+    id: "real-time-agent",
     company: "Real Time Agent",
     companyUrl: "https://www.realtimeagent.com.au",
     type: "Full-time",
     location: "Melbourne, Australia",
-    period: "Aug 2018 - Feb 2020",
-    duration: "1 year 7 months",
+    startDate: "2018-08",
+    endDate: "2020-02",
     title: "Frontend Developer",
+    summary: "Built real-time auction and offer interfaces, with components and state patterns adopted across broader platforms after acquisition.",
     achievements: [
       "Built real-time auction and offer-management interfaces for real estate agents using React, Node.js, and WebSockets.",
       "Established foundational components and real-time state synchronization patterns adopted across broader platforms after company acquisition.",
@@ -57,12 +125,14 @@ export const experiences: Experience[] = [
     technologies: ["React", "Node.js", "JavaScript", "WebSockets", "CSS-in-JS"],
   },
   {
+    id: "future-golf",
     company: "Future Golf",
     type: "Casual",
     location: "Remote",
-    period: "Mar 2025 - Oct 2025",
-    duration: "8 months",
+    startDate: "2025-03",
+    endDate: "2025-10",
     title: "Software Developer",
+    summary: "Delivered full-stack golf platform features and automated CI/CD to improve deployment reliability and release cadence.",
     achievements: [
       "Delivered full-stack features for a golf-tech platform on a casual contract basis.",
       "Improved deployment reliability and release cadence by setting up automated CI/CD pipelines.",
@@ -70,13 +140,15 @@ export const experiences: Experience[] = [
     technologies: ["React", "Node.js", "TypeScript", "CI/CD"],
   },
   {
+    id: "nzdf",
     company: "New Zealand Defence Force",
     companyUrl: "https://www.nzdf.mil.nz",
     type: "Full-time",
     location: "Wellington, New Zealand",
-    period: "Nov 2015 - Jul 2018",
-    duration: "2 years 9 months",
+    startDate: "2015-11",
+    endDate: "2018-07",
     title: "Developer / Simulation & Process Modeller",
+    summary: "Developed operational tools, simulations and logistics models to inform defence capability decisions.",
     achievements: [
       "Developed internal tooling and front-end systems for defence operations.",
       "Modelled operational processes, simulations, and interactive transit/logistics tools to inform capability decisions.",
@@ -84,13 +156,15 @@ export const experiences: Experience[] = [
     technologies: ["JavaScript", "Simulation", "Data Visualization", "Process Modelling"],
   },
   {
+    id: "nz-army",
     company: "NZ Army",
     companyUrl: "https://www.nzdf.mil.nz/army",
     type: "Reserves",
     location: "Wellington, New Zealand",
-    period: "Oct 2007 - Present",
-    duration: "18 years 9 months",
+    startDate: "2007-10",
+    endDate: null,
     title: "Army Reservist",
+    summary: "Ongoing reserve service alongside a technical career, developing leadership, discipline and mission-focus.",
     achievements: [
       "Developed leadership, discipline, and mission-focus alongside a technical career.",
     ],
@@ -98,47 +172,95 @@ export const experiences: Experience[] = [
   },
 ];
 
-export const skillCategories = [
+export function getExperiences(asOf: Date = new Date()): Experience[] {
+  return experienceSources.map((experience) => ({
+    ...experience,
+    period: formatExperiencePeriod(experience.startDate, experience.endDate),
+    duration: formatExperienceDuration(experience.startDate, experience.endDate, asOf),
+  }));
+}
+
+export const experiences: Experience[] = getExperiences();
+
+export interface SelectedImpact {
+  id: string;
+  experienceId: string;
+  title: string;
+  problem: string;
+  role: string;
+  system: string;
+  outcome: string;
+  achievementIndexes: number[];
+}
+
+/** Summaries of the Domain achievements above; no unpublished metrics or work. */
+export const selectedImpact: SelectedImpact[] = [
   {
-    name: "Languages & Core",
-    skills: [
-      { name: "TypeScript / JavaScript", proficiency: 5 },
-      { name: "Python", proficiency: 4 },
-      { name: "GraphQL (SDL)", proficiency: 4 },
-      { name: "HTML / CSS", proficiency: 5 },
-      { name: "Shell Scripting (Bash/Zsh)", proficiency: 3 },
-    ],
+    id: "shared-api",
+    experienceId: "domain",
+    title: "One API across three platforms",
+    problem: "Keeping web, iOS and Android clients aligned on API contracts.",
+    role: "Architected and maintained the GraphQL backend-for-frontend.",
+    system: "Apollo Server, field-level authorisation and OpenAPI-to-TypeScript code generation.",
+    outcome: "A shared, type-safe API serving all three clients without contract drift.",
+    achievementIndexes: [0],
   },
   {
-    name: "Frontend & Mobile",
-    skills: [
-      { name: "React / React 19", proficiency: 5 },
-      { name: "Next.js (App Router)", proficiency: 5 },
-      { name: "React Native / Expo", proficiency: 4 },
-      { name: "Design Systems (Lerna/Changesets)", proficiency: 5 },
-      { name: "Accessibility (WCAG AA)", proficiency: 5 },
-    ],
+    id: "design-systems",
+    experienceId: "domain",
+    title: "Shared foundations for product teams",
+    problem: "Supplying reusable UI foundations across multiple internal products.",
+    role: "Designed and maintained two composable design system monorepos.",
+    system: "Lerna, Changesets, React component packages and shared Emotion design tokens.",
+    outcome: "30+ component packages consumed across multiple products.",
+    achievementIndexes: [2],
   },
   {
-    name: "Backend & Systems",
-    skills: [
-      { name: "Node.js (Express/BFF)", proficiency: 5 },
-      { name: "AI Systems & LLM Integration", proficiency: 4 },
-      { name: "Python (Django/FastAPI)", proficiency: 4 },
-      { name: "Redis / BullMQ", proficiency: 4 },
-      { name: "Databases (Postgres/DynamoDB/MongoDB)", proficiency: 4 },
-    ],
-  },
-  {
-    name: "Cloud, DevOps & Observability",
-    skills: [
-      { name: "AWS (ECS/Fargate/CDK)", proficiency: 4 },
-      { name: "CI/CD (Jenkins/GitHub Actions)", proficiency: 5 },
-      { name: "Docker / LocalStack", proficiency: 4 },
-      { name: "APM (Elastic APM/Raygun)", proficiency: 4 },
-      { name: "Testing (Playwright/Cypress/Jest)", proficiency: 5 },
-    ],
+    id: "delivery-platform",
+    experienceId: "domain",
+    title: "A repeatable path to production",
+    problem: "Delivering and checking a suite of containerised Node.js services.",
+    role: "Owned the end-to-end CI/CD workflow and infrastructure deployments.",
+    system: "Multi-stage Docker builds, Jenkins checks, AWS CDK and ECS Fargate.",
+    outcome: "Per-PR preview environments with unit, integration and schema checks in the delivery pipeline.",
+    achievementIndexes: [3],
   },
 ];
 
+export interface SkillCategory {
+  name: string;
+  context: string;
+  skills: { name: string }[];
+}
 
+export const skillCategories: SkillCategory[] = [
+  {
+    name: "Primary",
+    context: "Product interfaces, shared APIs and design systems at Domain and CoStar Group.",
+    skills: [
+      { name: "TypeScript / JavaScript" },
+      { name: "React / Next.js" },
+      { name: "Node.js / GraphQL" },
+      { name: "Design systems / Accessibility" },
+    ],
+  },
+  {
+    name: "Production experience",
+    context: "Service delivery, cross-platform products and automated quality checks at Domain.",
+    skills: [
+      { name: "AWS ECS / Fargate / CDK" },
+      { name: "Docker / Jenkins / CI/CD" },
+      { name: "Jest / Cypress / Visual regression" },
+      { name: "React Native / Expo" },
+    ],
+  },
+  {
+    name: "Current exploration",
+    context: "Local-first AI gateways, context compression and developer tooling.",
+    skills: [
+      { name: "Rust / Python" },
+      { name: "AI systems / LLM integration" },
+      { name: "Model Context Protocol (MCP)" },
+    ],
+  },
+];

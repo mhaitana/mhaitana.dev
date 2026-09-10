@@ -22,6 +22,9 @@ export interface GitHubRepo {
   html_url: string;
   description: string | null;
   fork: boolean;
+  private?: boolean;
+  archived?: boolean;
+  disabled?: boolean;
   created_at: string;
   updated_at: string;
   pushed_at: string;
@@ -106,6 +109,23 @@ export interface GitHubData {
   languageStats: LanguageStat[];
   detectedTechnologies?: Record<string, DetectedTechnology[]>;
   contributionCalendar: ContributionCalendar | null;
+}
+
+export interface ActivitySummary {
+  id: string;
+  type: string;
+  repo: string;
+  date: string;
+  latestAt: string;
+  count: number;
+  action?: string;
+}
+
+export interface ContributionMonth {
+  month: string;
+  contributions: number;
+  activeDays: number;
+  recordedDays: number;
 }
 
 export function computeLanguageStats(repos: GitHubRepo[]): LanguageStat[] {

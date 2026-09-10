@@ -80,14 +80,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className={`h-full antialiased ${archivo.variable} ${spaceGrotesk.variable}`}>
+    <html lang="en-AU" suppressHydrationWarning className={`h-full antialiased ${archivo.variable} ${spaceGrotesk.variable}`}>
       <body className="min-h-full flex flex-col bg-background text-foreground" suppressHydrationWarning>
         <Providers>
           <SkipNav />
           <Navbar />
-          <div id="main-content" className="flex-1">
+          <main id="main-content" tabIndex={-1} className="min-w-0 flex-1">
             {children}
-          </div>
+          </main>
           <Footer />
           <Analytics />
         </Providers>
