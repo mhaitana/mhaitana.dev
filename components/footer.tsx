@@ -6,38 +6,38 @@ const footerLinks = [
   { href: "/about", label: "About" },
   { href: "/about#experience", label: "Experience" },
   { href: "/about#skills", label: "Skills" },
-  { href: "/github", label: "GitHub" },
+  { href: "/github", label: "Worklog" },
   { href: "/labs", label: "Labs" },
   { href: "/contact", label: "Contact" },
-  { href: "/resume", label: "Resume" },
+  { href: "/resume", label: "Résumé" },
 ];
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-border bg-foreground text-background">
-      <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-12 lg:py-20">
+    <footer className="border-t border-border inverse-surface">
+      <div className="mx-auto max-w-7xl px-5 py-12 sm:px-8 lg:px-12 lg:py-16">
         <div className="grid gap-12 lg:grid-cols-[1fr_auto] lg:items-end">
           <div className="max-w-4xl">
-            <p className="font-mono text-xs font-semibold uppercase tracking-[0.15em] text-background/55">Have a hard problem?</p>
-            <Link href="/contact" className="group mt-5 inline-flex items-end gap-4 font-heading text-5xl font-bold leading-[0.9] tracking-[-0.06em] sm:text-7xl lg:text-8xl">
+            <p className="font-mono text-xs font-semibold uppercase tracking-[0.15em] text-background/75">Have a hard problem?</p>
+            <Link href="/contact" className="group mt-5 inline-flex max-w-full items-end gap-3 font-heading text-[clamp(2.25rem,7vw,6rem)] font-bold leading-[0.9] tracking-[-0.06em]">
               Let&apos;s build it
-              <ArrowUpRight className="mb-1 size-8 text-primary transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 sm:size-12" aria-hidden="true" />
+              <ArrowUpRight className="mb-1 size-8 shrink-0 text-primary transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 sm:size-12" aria-hidden="true" />
             </Link>
           </div>
 
-          <div className="grid grid-cols-2 gap-x-10 gap-y-3">
+          <nav aria-label="Footer navigation" className="grid grid-cols-2 gap-x-10 gap-y-0">
             {footerLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="min-h-8 font-mono text-xs uppercase tracking-wider text-background/55 transition-colors hover:text-background"
+                className="inline-flex min-h-11 items-center font-mono text-xs uppercase tracking-wider text-background/75 transition-colors hover:text-background"
               >
                 {link.label}
               </Link>
             ))}
-          </div>
+          </nav>
 
           <div className="flex items-center gap-2 lg:col-start-2 lg:justify-end">
             <a
@@ -68,11 +68,11 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col justify-between gap-3 border-t border-background/15 pt-6 sm:flex-row">
-          <p className="font-mono text-[0.65rem] uppercase tracking-wider text-background/45">
+        <div className="mt-10 flex flex-col justify-between gap-3 border-t border-background/15 pt-6 sm:flex-row">
+          <p className="font-mono text-[0.65rem] uppercase tracking-wider text-background/70">
             © {currentYear} Matt Haitana. All rights reserved.
           </p>
-          <p className="font-mono text-[0.65rem] uppercase tracking-wider text-background/45">
+          <p className="font-mono text-[0.65rem] uppercase tracking-wider text-background/70">
             Melbourne, Australia · Available worldwide
           </p>
         </div>

@@ -1,7 +1,5 @@
-"use client";
-
-import * as React from "react";
 import { getContributionLevel, type ContributionCalendar } from "@/lib/github-types";
+import { summariseContributions } from "@/lib/github-worklog";
 import { cn } from "@/lib/utils";
 
 interface GitHubContributionGraphProps {
@@ -9,163 +7,105 @@ interface GitHubContributionGraphProps {
   className?: string;
 }
 
-const dayLabels = ["Mon", "Wed", "Fri"];
+const fills = ["fill-muted", "fill-primary/25", "fill-primary/45", "fill-primary/70", "fill-primary"];
 
-function formatMonthLabel(dateString: string): string {
-  const parts = dateString.split("-");
-  if (parts.length < 2) return "";
-  const monthIndex = parseInt(parts[1], 10) - 1;
-  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-  return months[monthIndex] || "";
-}
-
-export function GitHubContributionGraph({
-  calendar,
-  className,
-}: GitHubContributionGraphProps) {
-  const weeks = calendar.weeks;
-
-  // Compute month labels aligned to weeks.
-  const monthLabels: { label: string; weekIndex: number }[] = [];
-  let lastMonth = "";
-  weeks.forEach((week, index) => {
-    const firstDay = week.contributionDays[0];
-    if (!firstDay) return;
-    const month = formatMonthLabel(firstDay.date);
-    if (month !== lastMonth) {
-      monthLabels.push({ label: month, weekIndex: index });
-      lastMonth = month;
-    }
+function monthLabel(month: string) {
+  return new Date(`${month}-01T00:00:00Z`).toLocaleDateString("en-AU", {
+    month: "short", year: "numeric", timeZone: "UTC",
   });
+}
+
+export function GitHubContributionGraph({ calendar, className }: GitHubContributionGraphProps) {
+  const months = summariseContributions(calendar);
+  const days = calendar.weeks.flatMap((week) => week.contributionDays);
+  const activeDays = days.filter((day) => day.contributionCount > 0).length;
+  const maximumMonth = Math.max(1, ...months.map((month) => month.contributions));
+  const recentMonths = months.slice(-6);
+  let lastMonth = "";
+
+  if (!days.length) {
+    return <p className="text-sm text-muted-foreground">No contribution history was included in this snapshot.</p>;
+  }
 
   return (
-    <div className={cn("w-full", className)}>
-      <div className="flex items-center justify-between">
-        <p className="text-sm font-semibold text-foreground">
-          {calendar.totalContributions.toLocaleString()} contributions in the last year
-        </p>
-      </div>
+    <figure className={cn("min-w-0", className)}>
+      <figcaption className="text-sm leading-relaxed text-muted-foreground">
+        <span className="font-semibold text-foreground">{calendar.totalContributions.toLocaleString("en-AU")} contributions</span>
+        {" "}across {activeDays} active days in the recorded period, {monthLabel(months[0].month)}–{monthLabel(months[months.length - 1].month)}.
+      </figcaption>
 
-      <div className="mt-4 overflow-x-auto pb-2">
-        <div className="inline-block min-w-full">
-          <div className="flex">
-            <div className="mr-3 flex flex-col justify-between py-8">
-              {dayLabels.map((day) => (
-                <span
-                  key={day}
-                  className="text-[10px] leading-3 text-muted-foreground"
-                >
-                  {day}
-                </span>
-              ))}
-            </div>
-
-            <div className="flex-1">
-              <div className="relative mb-1 flex h-4 items-end text-[10px] text-muted-foreground">
-                {monthLabels.map(({ label, weekIndex }) => (
-                  <span
-                    key={`${label}-${weekIndex}`}
-                    className="absolute"
-                    style={{ left: `${weekIndex * 16}px` }}
+      {/* The visual is decorative. One optional monthly table gives access to
+          the data without adding hundreds of focus stops or verbose cells. */}
+      <div className="mt-5 hidden sm:block" aria-hidden="true">
+        <svg viewBox={`0 0 ${calendar.weeks.length * 16} 144`} className="w-full" focusable="false">
+          {calendar.weeks.map((week, weekIndex) => {
+            const firstDay = week.contributionDays[0];
+            const month = firstDay?.date.slice(0, 7);
+            const showLabel = month && month !== lastMonth && weekIndex < calendar.weeks.length - 2;
+            if (month) lastMonth = month;
+            return (
+              <g key={weekIndex}>
+                {showLabel && <text x={weekIndex * 16} y="12" className="fill-muted-foreground text-[10px]">{monthLabel(month).split(" ")[0]}</text>}
+                {week.contributionDays.map((day) => (
+                  <rect
+                    key={day.date}
+                    x={weekIndex * 16}
+                    y={24 + new Date(`${day.date}T00:00:00Z`).getUTCDay() * 16}
+                    width="12"
+                    height="12"
+                    className={fills[getContributionLevel(day.contributionCount)]}
                   >
-                    {label}
-                  </span>
+                    <title>{`${day.date}: ${day.contributionCount} contributions`}</title>
+                  </rect>
                 ))}
-              </div>
+              </g>
+            );
+          })}
+        </svg>
+        <p className="text-right text-xs text-muted-foreground">Stronger colour indicates more contributions.</p>
+      </div>
 
-              <div className="flex gap-1">
-                {weeks.map((week, weekIndex) => (
-                  <div key={weekIndex} className="flex flex-col gap-1">
-                    {week.contributionDays.map((day) => (
-                      <DayCell
-                        key={day.date}
-                        date={day.date}
-                        count={day.contributionCount}
-                        level={getContributionLevel(day.contributionCount)}
-                      />
-                    ))}
-                  </div>
-                ))}
-              </div>
+      <div className="mt-5 space-y-3 sm:hidden">
+        <p className="font-mono text-xs text-muted-foreground">Latest six recorded months</p>
+        {recentMonths.map((row) => (
+          <div key={row.month}>
+            <div className="flex justify-between gap-3 text-sm">
+              <span>{monthLabel(row.month)}</span>
+              <span className="tabular-nums text-muted-foreground">{row.contributions.toLocaleString("en-AU")}</span>
+            </div>
+            <div className="mt-1.5 h-1.5 bg-muted" aria-hidden="true">
+              <div className="h-full bg-primary" style={{ width: `${row.contributions / maximumMonth * 100}%` }} />
             </div>
           </div>
-
-          <div className="mt-2 flex items-center justify-end gap-2 text-[10px] text-muted-foreground">
-            <span>Less</span>
-            {[0, 1, 2, 3, 4].map((level) => (
-              <span
-                key={level}
-                className={cn(
-                  "h-3 w-3 rounded-sm",
-                  level === 0 && "bg-muted",
-                  level === 1 && "bg-primary/20 dark:bg-primary/10",
-                  level === 2 && "bg-primary/45 dark:bg-primary/30",
-                  level === 3 && "bg-primary/70 dark:bg-primary/60",
-                  level === 4 && "bg-primary"
-                )}
-              />
-            ))}
-            <span>More</span>
-          </div>
-        </div>
+        ))}
       </div>
-    </div>
+
+      <details className="mt-5 border-t border-border pt-2">
+        <summary className="min-h-11 cursor-pointer py-3 text-sm font-semibold text-foreground underline decoration-border underline-offset-4 hover:text-primary">
+          View monthly contribution table
+        </summary>
+        <table className="mt-3 w-full text-left text-sm tabular-nums">
+          <caption className="pb-3 text-left text-xs leading-relaxed text-muted-foreground">
+            Recorded months may be partial. Active days are shown against the number of days included in the snapshot.
+          </caption>
+          <thead>
+            <tr className="border-b border-border">
+              <th scope="col" className="py-2 pr-2 font-medium">Month</th>
+              <th scope="col" className="px-2 py-2 text-right font-medium">Contributions</th>
+              <th scope="col" className="py-2 pl-2 text-right font-medium">Active days</th>
+            </tr>
+          </thead>
+          <tbody>
+            {months.map((row) => (
+              <tr key={row.month} className="border-b border-border/60">
+                <th scope="row" className="py-2 pr-2 font-normal">{monthLabel(row.month)}</th>
+                <td className="px-2 py-2 text-right">{row.contributions.toLocaleString("en-AU")}</td>
+                <td className="py-2 pl-2 text-right text-muted-foreground">{row.activeDays} / {row.recordedDays}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </details>
+    </figure>
   );
-}
-
-function DayCell({
-  date,
-  count,
-  level,
-}: {
-  date: string;
-  count: number;
-  level: 0 | 1 | 2 | 3 | 4;
-}) {
-  const [showTooltip, setShowTooltip] = React.useState(false);
-
-  return (
-    <div
-      className="relative"
-      onMouseEnter={() => setShowTooltip(true)}
-      onMouseLeave={() => setShowTooltip(false)}
-      onFocus={() => setShowTooltip(true)}
-      onBlur={() => setShowTooltip(false)}
-      tabIndex={0}
-      aria-label={`${count} contribution${count === 1 ? "" : "s"} on ${formatGitHubDate(date)}`}
-    >
-      <div
-        className={cn(
-          "h-3 w-3 rounded-sm transition-colors",
-          level === 0 && "bg-muted",
-          level === 1 && "bg-primary/20 dark:bg-primary/10",
-          level === 2 && "bg-primary/45 dark:bg-primary/30",
-          level === 3 && "bg-primary/70 dark:bg-primary/60",
-          level === 4 && "bg-primary"
-        )}
-      />
-
-      {showTooltip && (
-        <div className="absolute bottom-full left-1/2 z-20 mb-2 -translate-x-1/2 whitespace-nowrap rounded-md bg-foreground px-2 py-1 text-xs text-background shadow-lg">
-          {count} contribution{count === 1 ? "" : "s"} on{" "}
-          {formatGitHubDate(date)}
-          <span className="absolute left-1/2 top-full -translate-x-1/2 border-4 border-transparent border-t-foreground" />
-        </div>
-      )}
-    </div>
-  );
-}
-
-function formatGitHubDate(dateString: string): string {
-  const parts = dateString.split("-");
-  if (parts.length < 3) return dateString;
-  const year = parts[0];
-  const monthIndex = parseInt(parts[1], 10) - 1;
-  const day = parseInt(parts[2], 10).toString();
-  const months = [
-    "January", "February", "March", "April", "May", "June",
-    "July", "August", "September", "October", "November", "December"
-  ];
-  const monthName = months[monthIndex] || "";
-  return `${day} ${monthName} ${year}`;
 }

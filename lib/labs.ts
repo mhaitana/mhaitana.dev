@@ -2,12 +2,13 @@
 //  haitech labs — solo-founder software studio pipeline
 //
 //  Single source of truth for the Labs area on mhaitana.dev.
-//  Content mirrors the canonical source at ~/Projects/haitechlabs/src/data/projects.ts.
+//  Project facts mirror ~/Projects/haitechlabs/src/data/projects.ts.
+//  This portfolio adds sentence-case copy, role context, and verified destinations.
 //  Edit, add, or remove entries here and the labs page + pipeline grid update.
 //
 //  Pitches are intentionally one line: enough to understand the shape of the
-//  opportunity, not enough to hand away the playbook. `requestDetails` gates
-//  the deeper conversation behind the contact form.
+//  opportunity, not a detailed specification. No project URL is currently
+//  supplied by the canonical source; do not substitute the studio homepage.
 // ============================================================================
 
 import {
@@ -37,6 +38,10 @@ export interface LabProject {
   status: LabStatus;
   /** The market/category it lives in. */
   category: string;
+  /** Responsibility supported by the studio's existing solo-founder description. */
+  role: string;
+  /** Add only a verified individual product, waitlist, repository, or case-study URL. */
+  destination?: { href: string; label: string };
   /** Whether a visitor can request more detail (gated behind contact). */
   requestDetails: boolean;
 }
@@ -44,62 +49,67 @@ export interface LabProject {
 export const labProjects: LabProject[] = [
   {
     id: "cruise-planner",
-    name: "cruise planner",
+    name: "Cruise Planner",
     pitch:
-      "search real sailings across 20+ cruise lines and chain them into optimized multi-segment itineraries on one map.",
+      "Search sailings across 20+ cruise lines and connect them into multi-segment itineraries on one map.",
     problem:
-      "planning back-to-back cruises means hand-matching ports and dates across separate line sites — slow and error-prone.",
+      "Planning back-to-back cruises means matching ports and dates across separate cruise-line sites.",
     stack: ["Next.js", "Supabase", "Mapbox", "Redis", "OpenAI"],
     status: "live",
-    category: "travel",
+    category: "Travel",
+    role: "Solo founder · design and development",
     requestDetails: false,
   },
   {
     id: "onthebell",
     name: "onthebell",
     pitch:
-      "an address-verified hyper-local platform bundling a feed, marketplace, jobs, and business directory for one community.",
+      "An address-verified community platform combining a local feed, marketplace, jobs, and business directory.",
     problem:
-      "regional towns lack a single trusted, locally-scoped digital home — needs are scattered across facebook groups and generic marketplaces.",
+      "Local information and services are scattered across Facebook groups and generic marketplaces.",
     stack: ["Next.js", "Firebase", "Stripe", "PWA", "Google Maps"],
     status: "alpha / waitlist",
-    category: "local community",
+    category: "Local community",
+    role: "Solo founder · design and development",
     requestDetails: true,
   },
   {
     id: "perkr",
     name: "perkr",
     pitch:
-      "a perks and deals marketplace giving verified gig drivers exclusive discounts, funded by subscribing local businesses.",
+      "A marketplace connecting verified gig drivers with discounts from subscribing local businesses.",
     problem:
-      "gig drivers get no benefits and small businesses can't reach that mobile workforce. perkr connects both sides.",
+      "Gig drivers miss out on workplace perks, while local businesses need a way to reach that mobile workforce.",
     stack: ["Next.js", "Supabase", "Stripe", "Mapbox", "PWA"],
     status: "alpha / waitlist",
-    category: "marketplace / gig",
+    category: "Marketplace / gig work",
+    role: "Solo founder · design and development",
     requestDetails: true,
   },
   {
     id: "hai",
     name: "hAI",
     pitch:
-      "a local-first mobile dev workstation — chat with on-device LLMs, edit code, and run a real Linux terminal from your phone.",
+      "A mobile workstation combining on-device language models, a code editor, and a Linux terminal.",
     problem:
-      "real development tooling doesn't run on a phone without a cloud backend; hai puts AI inference, a shell, and git on-device.",
+      "Mobile development workflows often depend on a cloud backend for AI, shell access, and Git.",
     stack: ["Expo", "React Native", "llama.rn", "v86 Linux", "TypeScript"],
     status: "in development",
-    category: "ai / dev tools",
+    category: "AI / developer tools",
+    role: "Solo founder · design and development",
     requestDetails: true,
   },
   {
     id: "babyweight",
     name: "babyweight",
     pitch:
-      "weekly fitness-equipment swaps plus guided workouts for new parents — train to lift, carry, and twist through daily parenting.",
+      "Weekly fitness-equipment swaps and guided workouts built around the movements of everyday parenting.",
     problem:
-      "gyms cost and weights clutter. new parents want functional strength without a membership or outgrown home gear.",
+      "New parents want functional strength without a gym membership or equipment that outlives its usefulness.",
     stack: ["Expo", "Next.js", "Supabase", "Stripe", "EAS"],
     status: "in development",
-    category: "health & fitness",
+    category: "Health & fitness",
+    role: "Solo founder · design and development",
     requestDetails: true,
   },
 ];
@@ -113,19 +123,19 @@ export const labStatusMeta: Record<
     label: "Live",
     icon: CheckCircle2,
     dotClass: "bg-emerald-500",
-    chipClass: "border-emerald-500/40 text-emerald-600 dark:text-emerald-400",
+    chipClass: "border-emerald-700/40 text-emerald-700 dark:border-emerald-400/40 dark:text-emerald-400",
   },
   "alpha / waitlist": {
-    label: "Alpha / Waitlist",
+    label: "Alpha / waitlist",
     icon: Activity,
     dotClass: "bg-orange-500",
-    chipClass: "border-orange-500/40 text-orange-600 dark:text-orange-400",
+    chipClass: "border-orange-700/40 text-orange-700 dark:border-orange-400/40 dark:text-orange-400",
   },
   "in development": {
-    label: "In Development",
+    label: "In development",
     icon: Code2,
     dotClass: "bg-sky-500",
-    chipClass: "border-sky-500/40 text-sky-600 dark:text-sky-400",
+    chipClass: "border-sky-700/40 text-sky-700 dark:border-sky-400/40 dark:text-sky-400",
   },
   brainstorm: {
     label: "Brainstorm",
@@ -139,8 +149,8 @@ export const labStatusMeta: Record<
 export const labFilters: { value: LabFilter; label: string }[] = [
   { value: "all", label: "All" },
   { value: "live", label: "Live" },
-  { value: "alpha / waitlist", label: "Alpha / Waitlist" },
-  { value: "in development", label: "In Development" },
+  { value: "alpha / waitlist", label: "Alpha / waitlist" },
+  { value: "in development", label: "In development" },
 ];
 
 export const labStats: { value: string; label: string }[] = [
@@ -154,17 +164,17 @@ export const labPillars: { icon: LucideIcon; title: string; body: string }[] = [
   {
     icon: Boxes,
     title: "What I build",
-    body: "lean MVPs, internal tools, and micro-SaaS. i pick sharp, well-defined problems and ship the smallest product that proves the thesis.",
+    body: "Lean MVPs, internal tools, and micro-SaaS. I start with a specific problem and build the smallest product that can test the idea.",
   },
   {
     icon: Gauge,
     title: "How I build",
-    body: "solo, design-led, shipping to production in public. metrics from day one — every build is either earning signal or it isn't worth keeping.",
+    body: "Solo and design-led, from an early idea to a working product. Each release gives me something concrete to learn from.",
   },
   {
     icon: Rocket,
     title: "The model",
-    body: "i build, validate, then decide: keep going, bring on a partner or operator, or sunset and move on. keep what compounds.",
+    body: "Build, validate, then decide: keep going, find a partner or operator, or close the project and move on.",
   },
 ];
 

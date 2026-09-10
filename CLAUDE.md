@@ -25,12 +25,14 @@ There is no test runner and no `type-check` script. Type-check via `npx tsc --no
 
 ## GitHub data flow (important)
 
-The GitHub dashboard is **not** fetched at request time. `scripts/fetch-github.mjs` pulls data from the GitHub REST + GraphQL APIs and writes a **committed** `lib/github-data.json`. The site reads that file at build/request time through `lib/github.ts`, which wraps reads in `next/cache`'s `unstable_cache` and bucket repo languages into categories (`CATEGORY_MAPPINGS`).
+The Worklog is **not** fetched from GitHub at request time. Run `npm run sync-github` to pull GitHub REST + GraphQL data into the **committed** `lib/github-data.json`, then review and deploy that snapshot. `lib/github.ts` caches the local file read for six hours; `lib/github-snapshot.ts` validates it and provides a stable empty fallback if the file is missing or malformed. The Worklog revalidates its freshness label every six hours and marks snapshots older than 30 days as stale. Revalidation does not synchronise new GitHub data. Failed or rate-limited syncs leave the previous snapshot untouched.
 
 - Without `GITHUB_TOKEN`: public repos/events/languages only, no contribution graph.
 - With `GITHUB_TOKEN` (scopes `repo`, `read:user`): private contributions included in language aggregates and the contribution calendar. **Private repo names are never written to the JSON or shown on the site** — preserve this when editing the script.
 - `GITHUB_USERNAME` (default `mhaitana`) overrides the target account.
 - The script loads `.env` via `process.loadEnvFile`; copy `.env.example` → `.env` for local tokens (`.env` is gitignored, `.env.example` is committed).
+- Technology detection runs against public repository manifests (including forks); language aggregates and contribution totals may include private work. The script owns technology categorisation.
+- `lib/github-worklog.ts` holds the curated public-project order, descriptions grounded in repository metadata, activity grouping and monthly contribution summaries. Graph cells are decorative; the monthly table provides accessible data without hundreds of keyboard stops.
 
 When editing GitHub logic, keep `lib/github-types.ts` as the single source of truth for shapes — `lib/github.ts` re-exports from it.
 
